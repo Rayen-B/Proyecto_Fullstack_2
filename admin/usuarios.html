@@ -3,22 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestion de Usuarios - Admin</title>
-    
+    <title>Administrador - Usuarios</title>
     <link rel="stylesheet" href="../css/styles.css">
 </head>
-<body>
-    <header>
-        <h1>Gestión de Usuarios</h1>
-    </header>
-    <main>
-      
-    </main>
-    <footer>
-        
-    </footer>
+<body class="cuerpo-admin">
 
-    <script src="../js/auth.js"></script>
-    <script src="../js/main.js"></script>
+    <div class="contenedor-admin">
+
+        
+<div class="contenedor-admin">
+
+        <div class="barra-lateral">
+            <div class="logo-barra-lateral">
+                <h2>Compañia</h2>
+            </div>
+        
+            <ul class="lista-menu">
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="ordenes.html">Ordenes</a></li>
+                <li><a href="productos.html">Inventario</a></li>
+                <li><a href="#reportes">Reportes</a></li>
+                <li><a href="usuarios.html">Empleados</a></li>
+                <li><a href="usuarios.html#clientes">Clientes</a></li>
+            </ul>
+
+            
+            <ul class="lista-menu menu-secundario">
+                <li><a href="#ajustes">Configuracion</a></li>
+                <li><a href="#perfil">Perfil</a></li>
+                <li><a href="#buscar">Buscar</a></li>
+                <li><a href="#ayuda">Ayuda</a></li>
+            </ul>
+
+            
+            <div class="footer-barra-lateral">
+                <p><b>Administrador</b></p>
+                <a href="../index.html">Ir a Tienda</a>
+                <a href="../login.html">Cerrar Sesión</a>
+            </div>
+        </div>
+
+        
+        <div class="panel-principal">
+            
+            <div class="encabezado-superior">
+                <div class="titulo-con-boton">
+                    <h1>Usuarios</h1>
+                    <a href="usuario-form.html" class="boton-nuevo">NUEVO USUARIO</a>
+                </div>
+                <div class="iconos-encabezado">
+                    <span class="icono-notificacion">poner icono</span>
+                </div>
+            </div>
+
+            
+            <div class="area-contenido">
+                
+                <div class="caja-tabla">
+                    <table class="tabla-datos">
+                        <thead>
+                            <tr>
+                                <th>RUN</th>
+                                <th>Nombre Completo</th>
+                                <th>Correo</th>
+                                <th>Rol</th>
+                                <th>Comuna</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>19011022K</td>
+                                <td>Alan Brito Delgado</td>
+                                <td>alan.brito@duoc.cl</td>
+                                <td><span class="estado estado-enviado">Administrador</span></td>
+                                <td>Santiago</td>
+                                <td>
+                                    <a href="usuario-form.html" class="link-accion">Editar</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>184561234</td>
+                                <td>Lola Mento </td>
+                                <td>lola.mento@profesor.duoc.cl</td>
+                                <td><span class="estado estado-proceso">Vendedor</span></td>
+                                <td>Providencia</td>
+                                <td>
+                                    <a href="usuario-form.html" class="link-accion">Editar</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>201239875</td>
+                                <td>Armando Esteban Quito</td>
+                                <td>armando.quito@gmail.com</td>
+                                <td><span class="estado estado-pendiente">Cliente</span></td>
+                                <td>Concepción</td>
+                                <td>
+                                    <a href="usuario-form.html" class="link-accion">Editar</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="paginacion">
+                        <a href="#">&laquo;</a>
+                        <a href="#">&lt;</a>
+                        <a href="#">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#">&gt;</a>
+                        <a href="#">&raquo;</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="../javascript/auth.js"></script>
+    <script src="../javascript/main.js"></script>
 </body>
 </html>

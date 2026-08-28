@@ -1,0 +1,391 @@
+
+/* 
+   ESTILOS GENERALES 
+   */
+/*Para resetear los estilos propios de los navegadores*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f9;
+    color: #333333;
+}
+
+/* 
+    ADMIN HOME (admin/index.html y admin/ordenes.html)
+*/
+
+/* Contenedor principal*/
+.contenedor-admin {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Barra Lateral) */
+.barra-lateral {
+    width: 240px;
+    background-color: #ffffff;
+    border-right: 1px solid #dcdcdc;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 15px;
+}
+
+.logo-barra-lateral {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.logo-barra-lateral h2 {
+    font-size: 20px;
+    color: #0a253f;
+}
+
+/* Listas del menú */
+.lista-menu {
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.lista-menu li {
+    margin-bottom: 8px;
+}
+
+.lista-menu a {
+    display: block;
+    text-decoration: none;
+    color: #555555;
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.lista-menu a:hover {
+    background-color: #f0f2f5;
+    color: #000000;
+}
+
+.lista-menu a.activo {
+    background-color: #0a253f;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Menú secundario hacia abajo */
+.menu-secundario {
+    margin-top: auto;
+    border-top: 1px solid #eeeeee;
+    padding-top: 20px;
+}
+
+/* Footer de la barra lateral */
+.footer-barra-lateral {
+    padding-top: 15px;
+    border-top: 1px solid #eeeeee;
+    font-size: 13px;
+    color: #3f3f3f;
+}
+
+.footer-barra-lateral a {
+    color: #0a253f;
+    text-decoration: none;
+}
+
+.footer-barra-lateral a:hover{
+    text-decoration: underline;
+}
+
+/* Panel principal */
+.panel-principal {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Barra superior */
+.encabezado-superior {
+    background-color: #ffffff;
+    border-bottom: 1px solid #dcdcdc;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.encabezado-superior h1 {
+    font-size: 24px;
+    color: #222222;
+}
+
+.subtitulo-encabezado {
+    font-size: 14px;
+    color: #777777;
+    margin-top: 4px;
+}
+
+.icono-notificacion {
+    font-size: 20px;
+    cursor: pointer;
+}
+/*BOTON DE NUEVO USUARIOOOOOOO*/
+.titulo-con-boton {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.boton-nuevo {
+    
+    background-color: #000ba5;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.boton-nuevo:hover {
+    background-color: #2532e9;
+}
+
+/* Contenido central */
+.area-contenido {
+    padding: 30px;
+    flex: 1;
+}
+
+.caja-dashboard {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 30px;
+    min-height: 400px;
+}
+
+.caja-dashboard h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #333333;
+}
+
+.caja-dashboard p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #313131;
+}
+
+/*
+   TABLAS Y LISTADOS (admin/ordenes.html y admin/usuarios.html)
+*/
+
+.caja-tabla {
+    background-color: #ffffff;
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+    padding: 20px;
+}
+
+.tabla-datos {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    text-align: left;
+}
+
+.tabla-datos thead tr {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.tabla-datos th {
+    padding: 12px 15px;
+    color: #495057;
+    font-weight: bold;
+}
+
+.tabla-datos td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eeeeee;
+    color: #333333;
+}
+
+.tabla-datos tbody tr:hover {
+    background-color: #fbfbfb;
+}
+
+.link-accion {
+    color: #0a253f;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.link-accion:hover {
+    text-decoration: underline;
+}
+
+/* Etiquetas de Estado */
+.estado {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.estado-enviado {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.estado-pendiente {
+    background-color: #fff8e1;
+    color: #f57f17;
+}
+
+.estado-proceso {
+    background-color: #e3f2fd;
+    color: #1565c0;
+}
+
+.estado-cancelado {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+/* Paginacion */
+.paginacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid #eeeeee;
+}
+
+.paginacion a {
+    display: inline-block;
+    padding: 6px 12px;
+    text-decoration: none;
+    color: #333333;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.paginacion a:hover {
+    background-color: #f0f0f0;
+}
+
+.paginacion a.pagina-activa {
+    background-color: #0a253f;
+    color: #ffffff;
+    border-color: #0a253f;
+    font-weight: bold;
+}
+
+/* 
+   FORMULARIOS (admin/producto-form.html)
+*/
+
+.caja-formulario {
+    background-color: #ffffff;
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.barra-titulo-formulario {
+    background-color: #e4e4e4;
+    padding: 12px 20px;
+    border-bottom: 1px solid #cccccc;
+}
+
+.barra-titulo-formulario h3 {
+    font-size: 14px;
+    color: #555555;
+    font-weight: normal;
+    text-transform: capitalize;
+}
+
+.formulario-admin {
+    padding: 25px 30px;
+}
+
+.grupo-campo {
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+.grupo-campo label {
+    font-size: 12px;
+    font-weight: bold;
+    color: #444444;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.grupo-campo input,
+.grupo-campo select,
+.grupo-campo textarea {
+    font-family: inherit;
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333333;
+    background-color: #fafafa;
+    resize: vertical;
+}
+
+.grupo-campo input:focus,
+.grupo-campo select:focus,
+.grupo-campo textarea:focus {
+    outline: none;
+    border-color: #0a253f;
+    background-color: #ffffff;
+}
+
+/* Fila para campos en dos columnas (Región y Comuna) */
+.fila-campos {
+    display: flex;
+    gap: 15px;
+}
+
+.campo-mitad {
+    flex: 1;
+}
+
+/* Botón de envío*/
+.contenedor-boton-formulario {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.boton-formulario {
+    background-color: #ffffff;
+    color: #000000;
+    border: 2px solid #000000;
+    padding: 10px 40px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.boton-formulario:hover {
+    background-color: #000000;
+    color: #ffffff;
+}

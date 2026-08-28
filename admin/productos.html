@@ -3,22 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestion de Productos - Admin</title>
-    
+    <title>Administrador - Productos</title>
     <link rel="stylesheet" href="../css/styles.css">
 </head>
-<body>
-    <header>
-        <h1>Gestión de Productos</h1>
-    </header>
-    <main>
-       
-    </main>
-    <footer>
-        
-    </footer>
+<body class="cuerpo-admin">
 
-    <script src="../js/auth.js"></script>
-    <script src="../js/main.js"></script>
+    <div class="contenedor-admin">
+
+        
+        <div class="barra-lateral">
+            <div class="logo-barra-lateral">
+                <h2>Company</h2>
+            </div>
+
+            
+            <ul class="lista-menu">
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="ordenes.html">Ordenes</a></li>
+                <li><a href="productos.html">Inventario</a></li>
+                <li><a href="#reportes">Reportes</a></li>
+                <li><a href="usuarios.html">Empleados</a></li>
+                <li><a href="usuarios.html#clientes">Clientes</a></li>
+            </ul>
+
+            
+            <ul class="lista-menu menu-secundario">
+                <li><a href="#ajustes">Configuracion</a></li>
+                <li><a href="#perfil">Perfil</a></li>
+                <li><a href="#buscar">Buscar</a></li>
+                <li><a href="#ayuda">Ayuda</a></li>
+            </ul>
+
+            
+            <div class="footer-barra-lateral">
+                <p><b>Administrador</b></p>
+                <a href="../index.html">Ir a Tienda</a>
+                <a href="../login.html">Cerrar Sesión</a>
+            </div>
+        </div>
+
+        
+        <div class="panel-principal">
+            
+            
+            <div class="encabezado-superior">
+                <div class="titulo-con-boton">
+                    <h1>Productos</h1>
+                    <a href="producto-form.html" class="boton-nuevo">NUEVO PRODUCTO</a>
+                </div>
+                <div class="iconos-encabezado">
+                    <span class="icono-notificacion">poner icono</span>
+                </div>
+            </div>
+
+            
+            <div class="area-contenido">
+                
+                <div class="caja-tabla">
+                    <table class="tabla-datos">
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Nombre</th>
+                                <th>Categoría</th>
+                                <th>Precio</th>
+                                <th>Stock</th>
+                                <th>Stock Crítico</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>PROD-001</td>
+                                <td>Teclado Mecánico RGB</td>
+                                <td>Tecnología</td>
+                                <td>$45.990</td>
+                                <td>15</td>
+                                <td><span class="estado estado-enviado">Normal (5)</span></td>
+                                <td>
+                                    <a href="producto-form.html" class="link-accion">Editar</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>PROD-002</td>
+                                <td>Mouse Inalámbrico</td>
+                                <td>Tecnología</td>
+                                <td>$24.990</td>
+                                <td>2</td>
+                                <td><span class="estado estado-cancelado">Crítico (3)</span></td>
+                                <td>
+                                    <a href="producto-form.html" class="link-accion">Editar</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>PROD-003</td>
+                                <td>Polera Estampada</td>
+                                <td>Ropa</td>
+                                <td>$12.500</td>
+                                <td>30</td>
+                                <td><span class="estado estado-enviado">Normal (10)</span></td>
+                                <td>
+                                    <a href="producto-form.html" class="link-accion">Editar</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>PROD-004</td>
+                                <td>Guía Digital de Estudio</td>
+                                <td>Educación</td>
+                                <td>$0</td>
+                                <td>100</td>
+                                <td><span class="estado estado-proceso">Digital</span></td>
+                                <td>
+                                    <a href="producto-form.html" class="link-accion">Editar</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>PROD-005</td>
+                                <td>Audífonos Bluetooth</td>
+                                <td>Tecnología</td>
+                                <td>$35.000</td>
+                                <td>1</td>
+                                <td><span class="estado estado-cancelado">Crítico (5)</span></td>
+                                <td>
+                                    <a href="producto-form.html" class="link-accion">Editar</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    
+                    <div class="paginacion">
+                        <a href="#">&laquo;</a>
+                        <a href="#">&lt;</a>
+                        <a href="#" class="pagina-activa">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#">&gt;</a>
+                        <a href="#">&raquo;</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="../javascript/auth.js"></script>
+    <script src="../javascript/main.js"></script>
 </body>
 </html>
