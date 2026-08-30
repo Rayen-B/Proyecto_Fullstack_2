@@ -1,391 +1,494 @@
+/* =========================================================
+   ESTILOS - PROYECTO TIENDA PASTELERÍA PAPITA DULCE
+   Paleta Oficial:
+   - Fondo Cálido: #FFF6EF
+   - Naranja (Primario): #FFA128
+   - Chocolate (Secundario): #894530
+   - Texto Carbón Oscuro: #42414A
+   ========================================================= */
 
-/* 
-   ESTILOS GENERALES 
-   */
-/*Para resetear los estilos propios de los navegadores*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --bs-font-sans-serif: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    
+    /* Variables de Color */
+    --color-fondo: #FFF6EF;
+    --color-primario: #FFA128;
+    --color-primario-hover: #e68e1a;
+    --color-secundario: #894530;
+    --color-secundario-hover: #723725;
+    --color-texto: #42414A;
+    --color-muted: #7b7987;
+    --color-borde: #fae7da;
+    --color-blanco: #ffffff;
+
+    /* Overrides Bootstrap */
+    --bs-primary: #FFA128;
+    --bs-primary-rgb: 255, 161, 40;
+}
+
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f4f6f9;
-    color: #333333;
-}
-
-/* 
-    ADMIN HOME (admin/index.html y admin/ordenes.html)
-*/
-
-/* Contenedor principal*/
-.contenedor-admin {
-    display: flex;
-    min-height: 100vh;
-}
-
-/* Barra Lateral) */
-.barra-lateral {
-    width: 240px;
-    background-color: #ffffff;
-    border-right: 1px solid #dcdcdc;
-    display: flex;
-    flex-direction: column;
-    padding: 20px 15px;
-}
-
-.logo-barra-lateral {
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #eeeeee;
-}
-
-.logo-barra-lateral h2 {
-    font-size: 20px;
-    color: #0a253f;
-}
-
-/* Listas del menú */
-.lista-menu {
-    list-style: none;
-    margin-bottom: 30px;
-}
-
-.lista-menu li {
-    margin-bottom: 8px;
-}
-
-.lista-menu a {
-    display: block;
-    text-decoration: none;
-    color: #555555;
-    padding: 10px 12px;
-    border-radius: 6px;
-    font-size: 15px;
-}
-
-.lista-menu a:hover {
-    background-color: #f0f2f5;
-    color: #000000;
-}
-
-.lista-menu a.activo {
-    background-color: #0a253f;
-    color: #ffffff;
-    font-weight: bold;
-}
-
-/* Menú secundario hacia abajo */
-.menu-secundario {
-    margin-top: auto;
-    border-top: 1px solid #eeeeee;
-    padding-top: 20px;
-}
-
-/* Footer de la barra lateral */
-.footer-barra-lateral {
-    padding-top: 15px;
-    border-top: 1px solid #eeeeee;
-    font-size: 13px;
-    color: #3f3f3f;
-}
-
-.footer-barra-lateral a {
-    color: #0a253f;
-    text-decoration: none;
-}
-
-.footer-barra-lateral a:hover{
-    text-decoration: underline;
-}
-
-/* Panel principal */
-.panel-principal {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Barra superior */
-.encabezado-superior {
-    background-color: #ffffff;
-    border-bottom: 1px solid #dcdcdc;
-    padding: 20px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.encabezado-superior h1 {
-    font-size: 24px;
-    color: #222222;
-}
-
-.subtitulo-encabezado {
-    font-size: 14px;
-    color: #777777;
-    margin-top: 4px;
-}
-
-.icono-notificacion {
-    font-size: 20px;
-    cursor: pointer;
-}
-/*BOTON DE NUEVO USUARIOOOOOOO*/
-.titulo-con-boton {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-}
-
-.boton-nuevo {
-    
-    background-color: #000ba5;
-    color: #ffffff;
-    text-decoration: none;
-    padding: 8px 16px;
-    font-size: 13px;
-    font-weight: bold;
-    border-radius: 4px;
-}
-
-.boton-nuevo:hover {
-    background-color: #2532e9;
-}
-
-/* Contenido central */
-.area-contenido {
-    padding: 30px;
-    flex: 1;
-}
-
-.caja-dashboard {
-    background-color: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 30px;
-    min-height: 400px;
-}
-
-.caja-dashboard h2 {
-    font-size: 20px;
-    margin-bottom: 15px;
-    color: #333333;
-}
-
-.caja-dashboard p {
-    font-size: 16px;
-    line-height: 1.5;
-    color: #313131;
+    font-family: var(--bs-font-sans-serif) !important;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
 }
 
 /*
-   TABLAS Y LISTADOS (admin/ordenes.html y admin/usuarios.html)
-*/
-
-.caja-tabla {
-    background-color: #ffffff;
-    border: 1px solid #dcdcdc;
-    border-radius: 6px;
-    padding: 20px;
+   CLASES DE UTILIDAD DE COLOR Y TEXTO
+    */
+.text-secundario {
+    color: var(--color-secundario) !important;
 }
 
-.tabla-datos {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 14px;
-    text-align: left;
+.text-principal {
+    color: var(--color-texto) !important;
 }
 
-.tabla-datos thead tr {
-    background-color: #f8f9fa;
-    border-bottom: 2px solid #dee2e6;
+.input-buscar {
+    max-width: 280px;
 }
 
-.tabla-datos th {
-    padding: 12px 15px;
-    color: #495057;
-    font-weight: bold;
+.bg-banner-admin {
+    background: linear-gradient(135deg, var(--color-secundario) 0%, #a3553d 100%);
 }
 
-.tabla-datos td {
-    padding: 12px 15px;
-    border-bottom: 1px solid #eeeeee;
-    color: #333333;
+.icon-shape-primary {
+    background-color: #fff2e0;
+    color: var(--color-primario);
 }
 
-.tabla-datos tbody tr:hover {
-    background-color: #fbfbfb;
+.icon-shape-secondary {
+    background-color: #f7ebe7;
+    color: var(--color-secundario);
 }
 
-.link-accion {
-    color: #0a253f;
-    text-decoration: none;
-    font-weight: bold;
+.avatar-initial {
+    background-color: #fff2e0;
+    color: var(--color-secundario);
 }
 
-.link-accion:hover {
-    text-decoration: underline;
+.alert-roles {
+    background-color: #f7ebe7;
+    color: var(--color-secundario);
 }
 
-/* Etiquetas de Estado */
-.estado {
-    display: inline-block;
-    padding: 4px 10px;
-    border-radius: 12px;
-    font-size: 12px;
-    font-weight: bold;
-}
-
-.estado-enviado {
-    background-color: #e8f5e9;
-    color: #2e7d32;
-}
-
-.estado-pendiente {
-    background-color: #fff8e1;
-    color: #f57f17;
-}
-
-.estado-proceso {
-    background-color: #e3f2fd;
-    color: #1565c0;
-}
-
-.estado-cancelado {
-    background-color: #ffebee;
-    color: #c62828;
-}
-
-/* Paginacion */
-.paginacion {
+.sidebar-logo-container {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    overflow: hidden;
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 5px;
-    margin-top: 25px;
-    padding-top: 15px;
-    border-top: 1px solid #eeeeee;
+    justify-content: center;
+    flex-shrink: 0;
 }
 
-.paginacion a {
-    display: inline-block;
-    padding: 6px 12px;
-    text-decoration: none;
-    color: #333333;
-    border: 1px solid #dcdcdc;
-    border-radius: 4px;
-    font-size: 14px;
-}
-
-.paginacion a:hover {
-    background-color: #f0f0f0;
-}
-
-.paginacion a.pagina-activa {
-    background-color: #0a253f;
-    color: #ffffff;
-    border-color: #0a253f;
-    font-weight: bold;
+.sidebar-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.28);
+    display: block;
 }
 
 /* 
-   FORMULARIOS (admin/producto-form.html)
-*/
-
-.caja-formulario {
-    background-color: #ffffff;
-    border: 1px solid #dcdcdc;
-    border-radius: 6px;
-    max-width: 800px;
-    margin: 0 auto;
-    overflow: hidden;
+   ESTRUCTURA DE NAVEGACIÓN Y PANEL ADMIN
+    */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(66, 65, 74, 0.45);
+    backdrop-filter: blur(2px);
+    display: none;
+    z-index: 1030;
 }
 
-.barra-titulo-formulario {
-    background-color: #e4e4e4;
-    padding: 12px 20px;
-    border-bottom: 1px solid #cccccc;
+.overlay.show {
+    display: block;
 }
 
-.barra-titulo-formulario h3 {
+.sidebar {
+    width: 250px;
+    background: #ffffff;
+    border-right: 1px solid var(--color-borde);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 65px;
+    z-index: 1030;
+    transition: width 0.25s ease, left 0.25s ease;
+    overflow-y: auto;
+}
+
+.sidebar .logo-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 65px;
+    width: 100%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 20px;
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.sidebar .logo-text {
+    color: var(--color-secundario);
+}
+
+.sidebar .nav-section-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    padding: 16px 20px 6px;
+    letter-spacing: 0.5px;
+}
+
+.sidebar .nav-link {
+    color: var(--color-texto);
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
     font-size: 14px;
-    color: #555555;
-    font-weight: normal;
-    text-transform: capitalize;
+    font-weight: 500;
+    gap: 12px;
+    margin: 2px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.15s ease;
 }
 
-.formulario-admin {
-    padding: 25px 30px;
+.sidebar .nav-link:hover {
+    color: var(--color-secundario);
+    background-color: #fff4ea;
 }
 
-.grupo-campo {
-    margin-bottom: 18px;
+.sidebar .nav-link.active {
+    color: #ffffff;
+    background-color: var(--color-secundario);
+    font-weight: 600;
+}
+
+.sidebar .nav-link i,
+.sidebar .nav-link .ti {
+    font-size: 19px;
+    line-height: 1;
+}
+
+.sidebar-footer {
+    padding: 14px;
+    margin: 12px;
+    border-radius: 10px;
+    background-color: #fff8f3;
+    border: 1px solid var(--color-borde);
+}
+
+.sidebar.collapsed {
+    width: 70px;
+}
+
+.sidebar.collapsed .nav-section-title,
+.sidebar.collapsed .nav-text,
+.sidebar.collapsed .logo-text,
+.sidebar.collapsed .sidebar-footer {
+    display: none !important;
+}
+
+.sidebar.collapsed .nav-link {
+    margin: 4px 10px;
+    padding: 10px 14px;
+    justify-content: center;
+}
+
+.topbar {
+    height: 65px;
+    margin-left: 250px;
+    background: #ffffff;
+    border-bottom: 1px solid var(--color-borde);
+    transition: margin-left 0.25s ease;
+    z-index: 1020;
+}
+
+.topbar.full {
+    margin-left: 70px;
+}
+
+.content {
+    margin-left: 250px;
+    padding-top: 65px;
+    min-height: 100vh;
+    transition: margin-left 0.25s ease;
     display: flex;
     flex-direction: column;
 }
 
-.grupo-campo label {
+.content.full {
+    margin-left: 70px;
+}
+
+@media (max-width: 992px) {
+    .sidebar {
+        left: -260px;
+    }
+    .sidebar.mobile-show {
+        left: 0;
+    }
+    .topbar {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+    .content {
+        margin-left: 0 !important;
+    }
+}
+
+/* 
+   Tarjetas, Botones, Tablas, Formularios
+   */
+.card {
+    border: 1px solid var(--color-borde);
+    border-radius: 14px;
+    box-shadow: 0 2px 6px rgba(66, 65, 74, 0.04);
+    background-color: #ffffff;
+}
+
+.card-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid var(--color-borde);
+    padding: 16px 20px;
+    font-weight: 600;
+}
+
+/* Botones */
+.btn-pasteleria, .btn-primary {
+    background-color: var(--color-primario) !important;
+    border-color: var(--color-primario) !important;
+    color: #ffffff !important;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 8px 18px;
+    transition: all 0.2s ease;
+}
+
+.btn-pasteleria:hover, .btn-primary:hover {
+    background-color: var(--color-primario-hover) !important;
+    border-color: var(--color-primario-hover) !important;
+    color: #ffffff !important;
+}
+
+.btn-secundario {
+    background-color: var(--color-secundario) !important;
+    border-color: var(--color-secundario) !important;
+    color: #ffffff !important;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 8px 18px;
+    transition: all 0.2s ease;
+}
+
+.btn-secundario:hover {
+    background-color: var(--color-secundario-hover) !important;
+    border-color: var(--color-secundario-hover) !important;
+    color: #ffffff !important;
+}
+
+.btn-outline-pasteleria {
+    border: 1px solid var(--color-secundario);
+    color: var(--color-secundario);
+    background-color: transparent;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 7px 16px;
+    transition: all 0.2s ease;
+}
+
+.btn-outline-pasteleria:hover {
+    background-color: var(--color-secundario);
+    color: #ffffff;
+}
+
+/* Tablas */
+.table th {
     font-size: 12px;
-    font-weight: bold;
-    color: #444444;
+    font-weight: 700;
     text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-muted);
+    background-color: #fff9f5;
+    border-bottom: 1px solid var(--color-borde);
+    padding: 12px 16px;
+    vertical-align: middle;
+}
+
+.table td {
+    padding: 14px 16px;
+    vertical-align: middle;
+    font-size: 14px;
+    border-bottom: 1px solid var(--color-borde);
+    color: var(--color-texto);
+}
+
+.table tbody tr:hover {
+    background-color: #fffbf8;
+}
+
+/* Badges */
+.badge-soft-primary {
+    background-color: #fff2e0;
+    color: #c97406;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 6px;
+}
+
+.badge-soft-secondary {
+    background-color: #f7ebe7;
+    color: var(--color-secundario);
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 6px;
+}
+
+.badge-soft-success {
+    background-color: #dcfce7;
+    color: #15803d;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 6px;
+}
+
+.badge-soft-danger {
+    background-color: #fee2e2;
+    color: #b91c1c;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 6px;
+}
+
+.badge-soft-warning {
+    background-color: #fef9c3;
+    color: #a16207;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 6px;
+}
+
+.badge-soft-info {
+    background-color: #e0f2fe;
+    color: #0369a1;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 6px;
+}
+
+/* Avatares y Miniaturas */
+.avatar {
+    width: 38px;
+    height: 38px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.avatar-sm {
+    width: 32px;
+    height: 32px;
+}
+
+.banner-logo-container {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.28);
+    display: block;
+}
+
+.avatar-producto {
+    width: 46px;
+    height: 46px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--color-borde);
+    background-color: #fff;
+}
+
+.icon-shape {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+/* Formularios y Validaciones */
+.form-label {
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--color-texto);
     margin-bottom: 6px;
 }
 
-.grupo-campo input,
-.grupo-campo select,
-.grupo-campo textarea {
-    font-family: inherit;
-    width: 100%;
-    padding: 10px 12px;
-    border: 1px solid #cccccc;
-    border-radius: 4px;
+.form-control, .form-select {
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+    padding: 9px 14px;
     font-size: 14px;
-    color: #333333;
-    background-color: #fafafa;
-    resize: vertical;
-}
-
-.grupo-campo input:focus,
-.grupo-campo select:focus,
-.grupo-campo textarea:focus {
-    outline: none;
-    border-color: #0a253f;
+    color: var(--color-texto);
     background-color: #ffffff;
 }
 
-/* Fila para campos en dos columnas (Región y Comuna) */
-.fila-campos {
-    display: flex;
-    gap: 15px;
+.form-control:focus, .form-select:focus {
+    border-color: var(--color-primario);
+    box-shadow: 0 0 0 3px rgba(255, 161, 40, 0.2);
 }
 
-.campo-mitad {
-    flex: 1;
+.feedback-msg {
+    font-size: 12px;
+    margin-top: 4px;
+    display: none;
+    font-weight: 500;
 }
 
-/* Botón de envío*/
-.contenedor-boton-formulario {
-    display: flex;
+.feedback-msg.error {
+    color: #dc3545;
+    display: block;
+}
+
+.feedback-msg.success {
+    color: #198754;
+    display: block;
+}
+
+.btn-icon {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
-    margin-top: 25px;
-}
-
-.boton-formulario {
-    background-color: #ffffff;
-    color: #000000;
-    border: 2px solid #000000;
-    padding: 10px 40px;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-.boton-formulario:hover {
-    background-color: #000000;
-    color: #ffffff;
+    border-radius: 8px;
 }

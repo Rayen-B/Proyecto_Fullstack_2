@@ -3,22 +3,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Usuario - Admin</title>
+    <title>Administrador - Formulario de Usuario | Pastelería Papita Dulce</title>
     
+    <!-- Bootstrap 5 CSS & Tabler Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" rel="stylesheet">
+    
+    <!-- Estilos del Proyecto -->
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-    <header>
-        <h1>Formulario de Usuario</h1>
-    </header>
-    <main>
-        
-    </main>
-    <footer>
-        
-    </footer>
 
-    <script src="../js/auth.js"></script>
-    <script src="../js/main.js"></script>
+    <div id="overlay" class="overlay"></div>
+
+    <!-- 
+         BARRA LATERAL (SIDEBAR)
+          -->
+    <aside id="sidebar" class="sidebar">
+        <div class="logo-area">
+            <div class="sidebar-logo-container">
+                <img src="../assets/images/favicon_io/Logo_Papita_Dulce.png" alt="Logo" class="sidebar-logo-img">
+            </div>
+            <span class="logo-text fw-bold fs-5 ms-2">Papita Dulce</span>
+        </div>
+
+        <div class="nav-section-title">Navegación</div>
+        <ul class="list-unstyled mb-0">
+            <li>
+                <a href="index.html" class="nav-link">
+                    <i class="ti ti-dashboard"></i>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="ordenes.html" class="nav-link">
+                    <i class="ti ti-receipt"></i>
+                    <span class="nav-text">Órdenes</span>
+                </a>
+            </li>
+            <li>
+                <a href="productos.html" class="nav-link">
+                    <i class="ti ti-box"></i>
+                    <span class="nav-text">Inventario</span>
+                </a>
+            </li>
+            <li class="solo-admin">
+                <a href="usuarios.html" class="nav-link">
+                    <i class="ti ti-users"></i>
+                    <span class="nav-text">Usuarios</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="nav-section-title solo-admin">Gestión</div>
+        <ul class="list-unstyled mb-3 solo-admin">
+            <li>
+                <a href="producto-form.html" class="nav-link">
+                    <i class="ti ti-circle-plus"></i>
+                    <span class="nav-text">Nuevo Producto</span>
+                </a>
+            </li>
+            <li>
+                <a href="usuario-form.html" class="nav-link active">
+                    <i class="ti ti-user-plus"></i>
+                    <span class="nav-text">Nuevo Usuario</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="sidebar-footer mt-auto">
+            <div class="d-flex align-items-center mb-3">
+                <img src="../assets/images/avatar/ryan.png" alt="Avatar" class="avatar me-2">
+                <div class="overflow-hidden">
+                    <div id="usuario-nombre-actual" class="fw-semibold text-truncate small">Alan Brito</div>
+                    <span id="usuario-rol-actual" class="badge-soft-secondary">Administrador</span>
+                </div>
+            </div>
+            <div class="d-grid gap-2">
+                <a href="../index.html" class="btn btn-outline-pasteleria btn-sm"><i class="ti ti-building-store me-1"></i> Ir a la Tienda</a>
+                <a href="../login.html" class="btn btn-outline-danger btn-sm"><i class="ti ti-logout me-1"></i> Cerrar Sesión</a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- 
+         BARRA SUPERIOR (TOPBAR)
+         -->
+    <header id="topbar" class="topbar fixed-top d-flex align-items-center justify-content-between px-3 px-lg-4">
+        <div class="d-flex align-items-center gap-2">
+            <button id="toggleBtn" class="btn btn-light btn-icon d-none d-lg-inline-flex">
+                <i class="ti ti-layout-sidebar-left-collapse"></i>
+            </button>
+            <button id="mobileBtn" class="btn btn-light btn-icon d-lg-none">
+                <i class="ti ti-menu-2"></i>
+            </button>
+            <h5 class="mb-0 fw-semibold text-principal">Gestión de Usuario</h5>
+        </div>
+
+        <div class="d-flex align-items-center gap-2">
+            <a href="usuarios.html" class="btn btn-outline-secondary btn-sm">
+                <i class="ti ti-arrow-left me-1"></i> Volver a Usuarios
+            </a>
+        </div>
+    </header>
+
+    <!-- 
+         CONTENIDO PRINCIPAL (FORMULARIO)
+         -->
+    <main id="content" class="content">
+        <div class="container-fluid p-4">
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-9 col-xl-8">
+                    
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-white py-3">
+                            <h5 class="card-title mb-1 fw-bold text-principal"><i class="ti ti-user-plus me-2 text-secundario"></i> Registrar / Editar Usuario</h5>
+                            <p class="card-subtitle text-muted small">Todos los campos con (*) son obligatorios y cuentan con validación en tiempo real.</p>
+                        </div>
+                        
+                        <div class="card-body p-4">
+                            
+                            <div id="alerta-usuario" class="alert d-none" role="alert"></div>
+
+                            <form id="form-usuario" novalidate>
+                                
+                                <!-- RUN y Tipo de Usuario -->
+                                <div class="row g-3 mb-3">
+                                    <div class="col-md-6">
+                                        <label for="run" class="form-label">RUN / RUT <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control font-monospace" id="run" placeholder="Ej: 19011022K" maxlength="9" required>
+                                        <div class="form-text small">Sin puntos ni guión.</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="rol" class="form-label">Tipo de Usuario (Rol) <span class="text-danger">*</span></label>
+                                        <select class="form-select" id="rol" required>
+                                            <option value="Administrador">Administrador (Acceso total)</option>
+                                            <option value="Vendedor">Vendedor (Productos y Órdenes)</option>
+                                            <option value="Cliente" selected>Cliente (Solo Tienda)</option>
+                                        </select>
+                                        <div class="form-text small">Exclusivo de la vista de administración.</div>
+                                    </div>
+                                </div>
+
+                                <!-- Nombre y Apellidos -->
+                                <div class="row g-3 mb-3">
+                                    <div class="col-md-6">
+                                        <label for="nombre" class="form-label">Nombre <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="nombre" placeholder="Ej: Juan" maxlength="50" required>
+                                        <div class="form-text small">Requerido, máximo 50 caracteres.</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="apellidos" class="form-label">Apellidos <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="apellidos" placeholder="Ej: Pérez González" maxlength="100" required>
+                                        <div class="form-text small">Requerido, máximo 100 caracteres.</div>
+                                    </div>
+                                </div>
+
+                                <!-- Correo Electrónico -->
+                                <div class="mb-3">
+                                    <label for="correo" class="form-label">Correo Electrónico <span class="text-danger">*</span></label>
+                                    <input type="email" class="form-control" id="correo" placeholder="ejemplo@correo.com" maxlength="100" required>
+                                    <div class="form-text small">Requerido. Máximo 100 caracteres.</div>
+                                </div>
+
+                                <!-- Contraseña y Fecha de Nacimiento -->
+                                <div class="row g-3 mb-3">
+                                    <div class="col-md-6">
+                                        <label for="password" class="form-label">Contraseña <span class="text-danger">*</span></label>
+                                        <input type="password" class="form-control" id="password" placeholder="••••••••" maxlength="10" required>
+                                        <div class="form-text small">4 a 10 caracteres, alfanumérica y al menos 1 símbolo (@, $, #, !).</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento (Opcional)</label>
+                                        <input type="date" class="form-control" id="fechaNacimiento">
+                                        <div class="form-text small">Opcional.</div>
+                                    </div>
+                                </div>
+
+                                <!-- Región y Comuna Dinámica -->
+                                <div class="row g-3 mb-3">
+                                    <div class="col-md-6">
+                                        <label for="select-region" class="form-label">Región <span class="text-danger">*</span></label>
+                                        <select class="form-select" id="select-region" required>
+                                            <option value="">-- Seleccione una región --</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="select-comuna" class="form-label">Comuna <span class="text-danger">*</span></label>
+                                        <select class="form-select" id="select-comuna" disabled required>
+                                            <option value="">-- Primero seleccione una región --</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Dirección -->
+                                <div class="mb-4">
+                                    <label for="direccion" class="form-label">Dirección <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="direccion" placeholder="Ej: Av. Vicuña Mackenna 4917" maxlength="300" required>
+                                    <div class="form-text small">Requerido, máximo 300 caracteres.</div>
+                                </div>
+
+                                <!-- Botones de Acción -->
+                                <div class="d-flex gap-2 justify-content-end">
+                                    <a href="usuarios.html" class="btn btn-light">Cancelar</a>
+                                    <button type="submit" class="btn btn-pasteleria px-4 fw-semibold">
+                                        <i class="ti ti-device-floppy me-1"></i> GUARDAR USUARIO
+                                    </button>
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../javascript/regiones.js"></script>
+    <script src="../javascript/auth.js"></script>
+    <script src="../javascript/main.js"></script>
 </body>
 </html>
