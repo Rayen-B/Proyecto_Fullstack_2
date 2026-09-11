@@ -1,0 +1,1760 @@
+<!DOCTYPE html>
+<html lang="es">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="author" content="Papita Dulce">
+      <meta name="description" content="Papita Dulce - Pastelería y cafetería artesanal en Santiago">
+      <title>Papita Dulce - Pasteleria & Cafeteria - Grupo 6 - Proyecto Fullstack II</title>
+      <link rel="icon" type="image/png" href="../assets/images/favicon_io/Logo_Papita_Dulce_recorte.png">
+      <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet"/>
+      <!-- Bootstrap 5.3 -->
+      <link href="css/bootstrap.min.css" rel="stylesheet"/>
+      <!-- AOS Animate on Scroll -->
+      <link href="css/aos.css" rel="stylesheet"/>
+      <!-- Swiper -->
+      <link href="css/swiper-bundle.min.css" rel="stylesheet"/>
+      <!-- all min css -->
+      <link rel="stylesheet" href="css/all.min.css"/>
+      <!-- magnific CSS -->
+      <link rel="stylesheet" href="css/magnific-popup.css"/>
+      <!-- Style CSS -->
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+   <body>
+      <!-- ============================================================
+         BARRA INICIAL
+         ============================================================ -->
+      <nav class="navbar navbar-expand-lg" id="nav">
+         <div class="container">
+            <a class="navbar-brand" href="#">
+               <div class="blogo">
+                  <div class="bico">
+                     <img src="img/logopapita.png" alt="Papita Dulce logo" />
+                  </div>
+                  <div>
+                     <div class="bname">Papita<span>Dulce</span></div>
+                     <div class="bsub">Pasteleria & Cafeteria</div>
+                  </div>
+               </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu" aria-label="Abrir menú">
+               <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navmenu">
+               <ul class="navbar-nav mx-auto">
+                  <li class="nav-item"><a class="nav-link active" href="#hero">Inicio</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#about">Nosotros</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#menu">Menú</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#chefs">Equipo</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#reservation">Reservacion</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#testimonials">Reseñas</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#contact-section">Contacto</a></li>
+               </ul>
+               <div class="d-flex align-items-center gap-1">
+                  <!-- FIX 1: Search button -->
+                  <button id="navSearchBtn" title="Buscar"><i class="fas fa-search"></i></button>
+                  <button id="accountToggle" class="account-toggle" type="button" aria-label="Abrir mi cuenta" aria-controls="accountPanel" aria-expanded="false"><i class="fas fa-user"></i><span>Mi cuenta</span></button>
+                  <button id="cartToggle" class="nav-link nav-cta" type="button" aria-label="Abrir carrito" aria-controls="cartPanel" aria-expanded="false"><i class="fas fa-shopping-bag me-1"></i>Carrito <span id="cartCount" aria-label="Productos en el carrito">0</span></button>
+               </div>
+            </div>
+         </div>
+      </nav>
+      <!-- ============================================================
+         PANEL INICIAL
+         ============================================================ -->
+      <div id="searchOv">
+         <button class="sovclose" id="searchClose"><i class="fas fa-times"></i></button>
+         <div class="sovbox">
+            <h4>¿Qué se te antoja hoy?</h4>
+            <div class="sovinput">
+               <input type="text" id="searchInput" placeholder="Busca tortas, jugos, postres..." autocomplete="off"/>
+               <button id="searchSubmit" type="button" aria-label="Buscar"><i class="fas fa-search"></i></button>
+            </div>
+            <!-- Categories inside search box -->
+            <div class="sovcats">
+               <div class="sovcat active" data-cat="all">
+                  <img src="img/imgc1.jpg" alt="Todas las preparaciones"/>Todo
+               </div>
+               <div class="sovcat" data-cat="tortas">
+                  <img src="img/menu/Torta_Panqueque_Naranja.jpeg" alt="Tortas caseras"/>Tortas
+               </div>
+               <div class="sovcat" data-cat="bebestibles">
+                  <img src="img/menu/Bebestibles.jpg" alt="Infusiones y bebestibles"/>Infusiones &amp; bebestibles
+               </div>
+               <div class="sovcat" data-cat="sandwiches">
+                  <img src="img/menu/Sandwich1.jpg" alt="Sándwiches"/>Sándwiches
+               </div>
+               <div class="sovcat" data-cat="tartaletas">
+                  <img src="img/menu/tartaleta1.jpg" alt="Tartaletas"/>Tartaletas
+               </div>
+               <div class="sovcat" data-cat="jugos">
+                  <img src="img/menu/5.jpg" alt=""/>Jugos naturales
+               </div>
+               <div class="sovcat" data-cat="postres">
+                  <img src="img/menu/postre1.jpg" alt="Postres"/>Postres
+               </div>
+            </div>
+            <div class="sovtrend">
+               <p><i class="fas fa-fire me-1 text-secondary"></i>Búsquedas en tendencia</p>
+               <span class="ttag">Torta panqueque naranja</span>
+               <span class="ttag">Torta de selva negra</span>
+               <span class="ttag">limonada jengibre menta</span>
+               <span class="ttag">Jugo de mango</span>
+               <span class="ttag">Galletas de chocolate</span>
+               <span class="ttag">Empolvados</span>
+            </div>
+         </div>
+      </div>
+      <!-- ============================================================
+         HERO
+         ============================================================ -->
+      <section id="hero">
+         <div class="hs hs1"></div>
+         <div class="hs hs2"></div>
+         <div class="hbgtxt">COMIDA</div>
+         <div class="container">
+            <div class="row align-items-center g-5 min-h-88vh">
+               <div class="col-lg-6">
+                  <div class="hbadge">
+                     <div class="hbi"><i class="fas fa-star"></i></div>
+                     <span>#1 El rincón dulce favorito de Santiago</span>
+                  </div>
+                  <h1 class="htitle">Delicioso <span class="hl">"Creado para despertar a tu Papita interior"</span><br/>
+para cada momento</h1>
+                  <p class="hdesc">Ese lado tierno y relajado que sabe disfrutar de las cosas buenas de la vida,un trozo de pastel y un sorbo de café a la vez.</p>
+                  <div class="d-flex flex-wrap gap-3 mb-2">
+                     <a href="#menu" class="btn-red"><i class="fas fa-utensils"></i>Explorar menú</a>
+					 <a href="img/Historia.png" class="magnific_popup btn-play">
+						<div class="pico"><i class="fas fa-play"></i></div>
+						<span>Mira nuestra historia</span>
+					 </a>
+                  </div>
+                  <div class="hstats d-flex gap-3 flex-wrap mt-4">
+                     <div class="hstat"><span class="snum">850<em>+</em></span><small>Clientes satisfechos</small></div>
+                     <div class="sdiv"></div>
+                     <div class="hstat"><span class="snum">120<em>+</em></span><small>Preparaciones</small></div>
+                     <div class="sdiv"></div>
+                     <div class="hstat"><span class="snum">15<em>+</em></span><small>Reposteros expertos</small></div>
+                     <div class="sdiv"></div>
+                     <div class="hstat"><span class="snum">5<em> Años</em></span><small>Experiencia</small></div>
+                  </div>
+               </div>
+               <div class="col-lg-6">
+                  <div class="pos-rel-center">
+                     <div class="hcircle">
+                        <img src="img/pastel_2.jpg" alt="Pastel"/>
+                     </div>
+                     <div class="fcard fc1">
+                        <div class="fcoi r"><i class="fas fa-fire"></i></div>
+                        <div><span class="fcnum">Oferta irresistible</span><span class="fcsm">30% de descuento hoy</span></div>
+                     </div>
+                     <div class="fcard fc2">
+                        <div class="fcoi y"><i class="fas fa-star"></i></div>
+                        <div><span class="fcnum">4.9/5</span><span class="fcsm">2k+ reseñas</span></div>
+                     </div>
+                     <div class="fcard fc3">
+                        <div class="fcoi g"><i class="fas fa-clock"></i></div>
+                        <div><span class="fcnum">20 min</span><span class="fcsm">Entrega rápida</span></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- MARQUEE -->
+      <div class="mqsec">
+         <div class="mqtrack">
+            <div class="mqitem"><i class="fas fa-circle"></i>Pastelería Artesanal</div>
+            <div class="mqitem"><i class="fas fa-circle"></i>Café de Especialidad</div>
+            <div class="mqitem"><i class="fas fa-circle"></i>Tortas Caseras</div>
+            <div class="mqitem"><i class="fas fa-circle"></i>Tartaletas</div>
+            <div class="mqitem"><i class="fas fa-circle"></i>Infusiones & bebestibles</div>
+            <div class="mqitem"><i class="fas fa-circle"></i>Recetas con cariño</div>
+            <div class="mqitem"><i class="fas fa-circle"></i>Postres</div>
+            <div class="mqitem"><i class="fas fa-circle"></i>Pasteleria artesanal</div>
+            <div class="mqitem"><i class="fas fa-circle"></i>Café de Especialidad</div>
+            <div class="mqitem"><i class="fas fa-circle"></i>Tortas caseras</div>
+            <div class="mqitem"><i class="fas fa-circle"></i>Tartaletas</div>
+            <div class="mqitem"><i class="fas fa-circle"></i>Infusiones & bebestibles</div>
+            <div class="mqitem"><i class="fas fa-circle"></i>Recetas con cariño</div>
+            <div class="mqitem"><i class="fas fa-circle"></i>Postres</div>
+         </div>
+      </div>
+      <!-- CATEGORY -->
+      <section id="category">
+         <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+               <span class="slbl">Lo que preparamos para ti</span>
+               <h2 class="stitle">Explora nuestro <span>Menú</span></h2>
+               <div class="sline"></div>
+               <p class="sdesc mx-auto max-w-480">Desde tortas artesanales y café de especialidad hasta antojos para consentir a tu Papita interior.</p>
+            </div>
+            <div class="row g-3 justify-content-center">
+               <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="0">
+                  <div class="catcard active" data-filter="all">
+                     <img class="catimg" src="img/imgc1.jpg" alt=""/>
+                     <div class="catnm">Todas las preparaciones</div>
+                     <div class="catct">34 productos</div>
+                  </div>
+               </div>
+               <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="70">
+                  <div class="catcard" data-filter="tortas">
+                     <img class="catimg" src="img/menu/Torta_Panqueque_Naranja.jpeg" alt="Torta Panqueque Naranja"/>
+                     <div class="catnm">Tortas caseras</div>
+                     <div class="catct">6 productos</div>
+                  </div>
+               </div>
+               <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="140">
+                  <div class="catcard" data-filter="bebestibles">
+                     <img class="catimg" src="img/menu/Bebestibles.jpg" alt=""/>
+                     <div class="catnm">Infusiones &amp; bebestibles</div>
+                     <div class="catct">10 productos</div>
+                  </div>
+               </div>
+               <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="210">
+                  <div class="catcard" data-filter="sandwiches">
+                     <img class="catimg" src="img/menu/Sandwich1.jpg" alt=""/>
+                     <div class="catnm">Sándwiches</div>
+                     <div class="catct">5 productos</div>
+                  </div>
+               </div>
+               <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="280">
+                  <div class="catcard" data-filter="tartaletas">
+                     <img class="catimg" src="img/menu/tartaleta1.jpg" alt=""/>
+                     <div class="catnm">Tartaletas</div>
+                     <div class="catct">5 productos</div>
+                  </div>
+               </div>
+               <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="350">
+                  <div class="catcard" data-filter="postres">
+                     <img class="catimg" src="img/menu/postre1.jpg" alt=""/>
+                     <div class="catnm">Postres</div>
+                     <div class="catct">8 productos</div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- ABOUT -->
+      <section id="about">
+         <div class="container">
+            <div class="row align-items-center g-5">
+               <div class="col-lg-5" data-aos="fade-right">
+                  <div class="astack">
+                     <div class="aexp"><span class="anum">5</span><small>Años de<br/>Excelencia</small></div>
+                     <div class="amain"><img src="img/vitrina1.jpg" alt="Vitrina de pastelería"/></div>
+                     <div class="asm"><img src="img/vitrina2.jpg" alt="Pastelería artesanal"/></div>
+                  </div>
+               </div>
+               <div class="col-lg-7" data-aos="fade-left">
+                  <span class="slbl">Nuestra historia</span>
+                  <h2 class="stitle text-start">Ven a Disfrutar de <br/>Nuestra <span>Pastelería &amp; Cafetería</span></h2>
+                  <div class="sline lft"></div>
+                  <p class="sdesc mb-4">Inspirados en la dulzura y calidez de nuestra gatita Papita, nacimos como un rincón acogedor pensado para hacer una pausa en tu día. Hoy preparamos cada receta y cada taza de café con la misma dedicación y cariño del primer día, para que siempre te sientas como en casa.</p>
+                  <div class="mb-4">
+                     <div class="fti">
+                        <div class="ftico r"><i class="fas fa-leaf"></i></div>
+                        <div><h6>100% Ingredientes frescos</h6><p>Elegimos insumos de la mejor calidad para que cada pastel y tarta tenga ese sabor casero único.</p></div>
+                     </div>
+                     <div class="fti">
+                        <div class="ftico y"><i class="fas fa-award"></i></div>
+                        <div><h6>Recetas con Amor</h6><p>Cada preparación está inspirada en regalarte un momento dulce y reconfortante.</p></div>
+                     </div>
+                     <div class="fti">
+                        <div class="ftico g"><i class="fas fa-shipping-fast"></i></div>
+                        <div><h6>Entregas &amp; Despachos</h6><p>Llevamos tus postres favoritos y café recién hecho directo a la puerta de tu hogar.</p></div>
+                     </div>
+                  </div>
+                  <a href="#menu" class="btn-red" data-menu-action="show-all"><i class="fas fa-book-open"></i>Ver menú completo</a>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- MENU -->
+      <section id="menu">
+         <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+               <span class="slbl">Hecho con amor</span>
+               <h2 class="stitle">El Menú de <span>Papita</span></h2>
+               <div class="sline"></div>
+            </div>
+            <!-- FIX 3 � filter buttons -->
+            <div class="text-center mb-4" data-aos="fade-up">
+               <button class="filtbtn active" data-f="all">Todo</button>
+               <button class="filtbtn" data-f="tortas">Tortas</button>
+               <button class="filtbtn" data-f="bebestibles">Infusiones &amp; Bebestibles</button>
+               <button class="filtbtn" data-f="sandwiches">Sándwiches</button>
+               <button class="filtbtn" data-f="tartaletas">Tartaletas</button>
+               <button class="filtbtn" data-f="jugos">Jugos naturales</button>
+               <button class="filtbtn" data-f="postres">Postres</button>
+            </div>
+            <div class="row g-4" id="mgrid">
+               <!-- CARD 1: Tortas -->
+               <div class="col-sm-6 col-lg-4 mwrap" data-c="tortas" data-aos="fade-up">
+                  <div class="mcard"
+                     data-img="img/menu/Torta_Panqueque_Naranja.jpeg"
+                     data-title="Torta Panqueque Naranja"
+                     data-cat="Tortas"
+                     data-price="$16.900" data-old="$20.000"
+                     data-rating="4.9" data-reviews="156"
+                     data-cal="450" data-time="15"
+                     data-desc="Deliciosa torta de capas de panqueques suaves rellena de crema pastelera, mermelada casera de naranja y frutas frescas. Una combinación perfecta de sabores cítricos y dulzura."
+                     data-tags="Casera,Más vendido,Naranja"
+                     data-has-variants="true"
+                     data-special-variants="true">
+                     <div class="mimg">
+                        <img src="img/menu/Torta_Panqueque_Naranja.jpeg" alt="Torta Panqueque Naranja"/>
+                        <div class="mbdg hot"><i class="fas fa-star"></i> Favorita</div>
+                        <div class="mhrt"><i class="far fa-heart"></i></div>
+                     </div>
+                     <div class="mbody">
+                        <div class="mcat">Tortas</div>
+                        <div class="mtit">Torta Panqueque Naranja</div>
+                        <div class="mdesc">Panqueques suaves, crema pastelera, mermelada naranja & frutas frescas</div>
+                        <div class="mfoot">
+                           <div>
+                              <div class="mprice">$16.900 <small>$20.000</small></div>
+                              <div class="mstars"><i class="fas fa-star"></i> <span class="text-light-gray text-xs">(128)</span></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- CARD 2: Torta Trufa -->
+               <div class="col-sm-6 col-lg-4 mwrap" data-c="tortas" data-aos="fade-up" data-aos-delay="80">
+                  <div class="mcard"
+                     data-img="img/menu/Torta_Trufa.jpeg"
+                     data-title="Torta Trufa"
+                     data-cat="Tortas"
+                     data-price="$18.900" data-old="$22.000"
+                     data-rating="4.8" data-reviews="112"
+                     data-cal="520" data-time="20"
+                     data-desc="Bizcocho de chocolate, crema trufa y una cobertura intensa de chocolate para una torta elegante y deliciosa."
+                     data-tags="Chocolate,Artesanal,Especial">
+                     <div class="mimg"><img src="img/menu/Torta_Trufa.jpeg" alt="Torta Trufa"/><div class="mbdg hot"><i class="fas fa-star"></i> Favorita</div><div class="mhrt"><i class="far fa-heart"></i></div></div>
+                     <div class="mbody"><div class="mcat">Tortas</div><div class="mtit">Torta Trufa</div><div class="mdesc">Bizcocho de chocolate, crema trufa y cobertura intensa de chocolate.</div><div class="mfoot"><div><div class="mprice">$18.900 <small>$22.000</small></div><div class="mstars"><i class="fas fa-star"></i> <span class="text-light-gray text-xs">(112)</span></div></div></div></div>
+                  </div>
+               </div>
+               <!-- CARD 3: Torta Tres Leches -->
+               <div class="col-sm-6 col-lg-4 mwrap" data-c="tortas" data-aos="fade-up" data-aos-delay="140">
+                  <div class="mcard"
+                     data-img="img/menu/Torta_Tres_Leches.webp"
+                     data-title="Torta Tres Leches"
+                     data-cat="Tortas"
+                     data-price="$17.500" data-old="$20.500"
+                     data-rating="4.9" data-reviews="138"
+                     data-cal="490" data-time="18"
+                     data-desc="Suave bizcocho bañado en tres leches, crema batida y un toque de canela para una textura irresistible."
+                     data-tags="Clásica,Suave,Canela">
+                     <div class="mimg"><img src="img/menu/Torta_Tres_Leches.webp" alt="Torta Tres Leches"/><div class="mbdg new"><i class="fas fa-star"></i> Nueva</div><div class="mhrt"><i class="far fa-heart"></i></div></div>
+                     <div class="mbody"><div class="mcat">Tortas</div><div class="mtit">Torta Tres Leches</div><div class="mdesc">Bizcocho bañado en tres leches, crema batida y un toque de canela.</div><div class="mfoot"><div><div class="mprice">$17.500 <small>$20.500</small></div><div class="mstars"><i class="fas fa-star"></i> <span class="text-light-gray text-xs">(138)</span></div></div></div></div>
+                  </div>
+               </div>
+               <!-- CARD 4: Torta Selva Negra -->
+               <div class="col-sm-6 col-lg-4 mwrap" data-c="tortas" data-aos="fade-up" data-aos-delay="200">
+                  <div class="mcard"
+                     data-img="img/menu/Torta_Selva_Negra.webp"
+                     data-title="Torta Selva Negra"
+                     data-cat="Tortas"
+                     data-price="$19.900" data-old="$23.000"
+                     data-rating="4.9" data-reviews="126"
+                     data-cal="540" data-time="22"
+                     data-desc="Capas de chocolate, crema y cerezas que forman una combinación clásica, fresca y profundamente chocolatoso."
+                     data-tags="Chocolate,Cerezas,Clásica">
+                     <div class="mimg"><img src="img/menu/Torta_Selva_Negra.webp" alt="Torta Selva Negra"/><div class="mbdg hot"><i class="fas fa-star"></i> Clásica</div><div class="mhrt"><i class="far fa-heart"></i></div></div>
+                     <div class="mbody"><div class="mcat">Tortas</div><div class="mtit">Torta Selva Negra</div><div class="mdesc">Capas de chocolate, crema y cerezas en una combinación clásica.</div><div class="mfoot"><div><div class="mprice">$19.900 <small>$23.000</small></div><div class="mstars"><i class="fas fa-star"></i> <span class="text-light-gray text-xs">(126)</span></div></div></div></div>
+                  </div>
+               </div>
+               <!-- CARD 5: Torta San Jorge -->
+               <div class="col-sm-6 col-lg-4 mwrap" data-c="tortas" data-aos="fade-up" data-aos-delay="260">
+                  <div class="mcard"
+                     data-img="img/menu/Torta_San_Jorge.jpg.webp"
+                     data-title="Torta San Jorge"
+                     data-cat="Tortas"
+                     data-price="$16.500" data-old="$19.000"
+                     data-rating="4.7" data-reviews="94"
+                     data-cal="470" data-time="18"
+                     data-desc="Una torta casera de textura suave y sabor tradicional, preparada para compartir en cualquier ocasión."
+                     data-tags="Casera,Tradicional,Para compartir">
+                     <div class="mimg"><img src="img/menu/Torta_San_Jorge.jpg.webp" alt="Torta San Jorge"/><div class="mhrt"><i class="far fa-heart"></i></div></div>
+                     <div class="mbody"><div class="mcat">Tortas</div><div class="mtit">Torta San Jorge</div><div class="mdesc">Torta casera de textura suave y sabor tradicional para compartir.</div><div class="mfoot"><div><div class="mprice">$16.500 <small>$19.000</small></div><div class="mstars"><i class="fas fa-star"></i> <span class="text-light-gray text-xs">(94)</span></div></div></div></div>
+                  </div>
+               </div>
+               <!-- CARD 6: Torta Papita -->
+               <div class="col-sm-6 col-lg-4 mwrap" data-c="tortas" data-aos="fade-up" data-aos-delay="320">
+                  <div class="mcard"
+                     data-img="img/menu/tortapapita.jfif"
+                     data-title="Torta Papita"
+                     data-cat="Tortas"
+                     data-price="$17.900" data-old="$21.000"
+                     data-rating="4.9" data-reviews="118"
+                     data-cal="480" data-time="18"
+                     data-desc="La torta insignia de Papita Dulce, con capas suaves, relleno cremoso y el sabor especial de la casa."
+                     data-tags="Casera,Especial,Recomendada">
+                     <div class="mimg">
+                        <img src="img/menu/tortapapita.jfif" alt="Torta Papita"/>
+                        <div class="mbdg hot"><i class="fas fa-star"></i> Favorita</div>
+                        <div class="mhrt"><i class="far fa-heart"></i></div>
+                     </div>
+                     <div class="mbody">
+                        <div class="mcat">Tortas</div>
+                        <div class="mtit">Torta Papita</div>
+                        <div class="mdesc">La torta insignia de la casa, con capas suaves,frutos frescos y un relleno cremoso irresistible.</div>
+                        <div class="mfoot"><div><div class="mprice">$17.900 <small>$21.000</small></div><div class="mstars"><i class="fas fa-star"></i> <span class="text-light-gray text-xs">(118)</span></div></div></div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-sm-6 col-lg-4 mwrap" data-c="bebestibles" data-aos="fade-up" data-aos-delay="160">
+                  <div class="mcard"
+                     data-img="img/menu/Bebestible2.jpg"
+                     data-title="Bebestible 2"
+                     data-cat="Bebestibles"
+                     data-price="$1.500" data-old="$2.000"
+                     data-rating="4.8" data-reviews="95"
+                     data-cal="480" data-time="18"
+                     data-desc="Jugo hecho con frutillas frescas de la huerta."
+                     data-tags="Fresco,Nuevo,Frutilla">
+                     <div class="mimg">
+                        <img src="img/menu/Bebestible2.jpg" alt="Bebestible 2"/>
+                        <div class="mbdg new"><i class="fas fa-star"></i> Nuevo</div>
+                        <div class="mhrt"><i class="far fa-heart"></i></div>
+                     </div>
+                     <div class="mbody">
+                        <div class="mcat">Bebestibles</div>
+                        <div class="mtit">Jugo de Frutilla</div>
+                        <div class="mdesc">Jugo hecho con frutillas frescas de la huerta y un toque de hojas frescas de menta.</div>
+                        <div class="mfoot">
+                           <div>
+                              <div class="mprice">$1.500 <small>$2.000</small></div>
+                              <div class="mstars"><i class="fas fa-star"></i> <span class="text-light-gray text-xs">(95)</span></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- CARD: Bebestible -->
+               <div class="col-sm-6 col-lg-4 mwrap" data-c="bebestibles" data-aos="fade-up">
+                  <div class="mcard" data-img="img/menu/Bebestibles.jpg" data-title="Bebestible" data-cat="Bebestibles" data-price="$1.800" data-old="$2.200" data-rating="4.7" data-reviews="68" data-cal="180" data-time="8" data-desc="Refrescante bebestible de la casa preparado con ingredientes de calidad" data-tags="Fresco,Artesanal,Especial">
+                     <div class="mimg"><img src="img/menu/Bebestibles.jpg" alt="Bebestible"/><div class="mhrt"><i class="far fa-heart"></i></div></div>
+                     <div class="mbody"><div class="mcat">Bebestibles</div><div class="mtit">Cafe helado</div><div class="mdesc">Refrescante preparación de la casa hecho con los mejores granos de cafe.</div><div class="mfoot"><div><div class="mprice">$1.800 <small>$2.200</small></div><div class="mstars"><i class="fas fa-star"></i> <span class="text-light-gray text-xs">(68)</span></div></div></div></div>
+                  </div>
+               </div>
+               <!-- CARD: Bebestible1 -->
+               <div class="col-sm-6 col-lg-4 mwrap" data-c="bebestibles" data-aos="fade-up" data-aos-delay="60">
+                  <div class="mcard" data-img="img/menu/Bebestible10.jpg" data-title="Bebestible 10" data-cat="Bebestibles" data-price="$1.600" data-old="$2.000" data-rating="4.6" data-reviews="57" data-cal="160" data-time="8" data-desc="Preparación refrescante de la carta de bebestibles de la seccion de jugos naturales" data-tags="Fresco,Suave,Nuevo">
+                     <div class="mimg"><img src="img/menu/Bebestible10.jpg" alt="Bebestible 10"/><div class="mbdg new"><i class="fas fa-star"></i> Nuevo</div><div class="mhrt"><i class="far fa-heart"></i></div></div>
+                     <div class="mbody"><div class="mcat">Bebestibles</div><div class="mtit">Jugo de Mango</div><div class="mdesc">Refrescante jugo preparado con mangos 100% frescos</div><div class="mfoot"><div><div class="mprice">$1.600 <small>$2.000</small></div><div class="mstars"><i class="fas fa-star"></i> <span class="text-light-gray text-xs">(57)</span></div></div></div></div>
+                  </div>
+               </div>
+               <!-- CARD: Bebestible3 -->
+               <div class="col-sm-6 col-lg-4 mwrap" data-c="bebestibles" data-aos="fade-up" data-aos-delay="120">
+                  <div class="mcard" data-img="img/menu/Bebestible3.jpg" data-title="Bebestible 3" data-cat="Bebestibles" data-price="$1.700" data-old="$2.100" data-rating="4.7" data-reviews="61" data-cal="170" data-time="8" data-desc="Bebestible fresco y equilibrado, ideal para acompañar tus preparaciones favoritas." data-tags="Fresco,Suave,Artesanal">
+                     <div class="mimg"><img src="img/menu/Bebestible3.jpg" alt="Bebestible 3"/><div class="mhrt"><i class="far fa-heart"></i></div></div>
+                     <div class="mbody"><div class="mcat">Bebestibles</div><div class="mtit">Limonada de menta y jengibre</div><div class="mdesc">Bebestible fresco y equilibrado para acompañar tu sandwitch a eleccion.</div><div class="mfoot"><div><div class="mprice">$1.700 <small>$2.100</small></div><div class="mstars"><i class="fas fa-star"></i> <span class="text-light-gray text-xs">(61)</span></div></div></div></div>
+                  </div>
+               </div>
+               <!-- CARD: Bebestible4 -->
+               <div class="col-sm-6 col-lg-4 mwrap" data-c="bebestibles" data-aos="fade-up" data-aos-delay="180">
+                  <div class="mcard" data-img="img/menu/Bebestible4.PNG" data-title="Bebestible 4" data-cat="Bebestibles" data-price="$1.900" data-old="$2.300" data-rating="4.8" data-reviews="73" data-cal="190" data-time="9" data-desc="Una opción fresca y deliciosa para disfrutar en cualquier momento del día." data-tags="Fresco,Delicioso,Especial">
+                     <div class="mimg"><img src="img/menu/Bebestible4.PNG" alt="Bebestible 4"/><div class="mbdg hot"><i class="fas fa-star"></i> Favorito</div><div class="mhrt"><i class="far fa-heart"></i></div></div>
+                     <div class="mbody"><div class="mcat">Bebestibles</div><div class="mtit">Jugo de naranja y frutilla</div><div class="mdesc">Opción fresca y deliciosa para cualquier momento del día.</div><div class="mfoot"><div><div class="mprice">$1.900 <small>$2.300</small></div><div class="mstars"><i class="fas fa-star"></i> <span class="text-light-gray text-xs">(73)</span></div></div></div></div>
+                  </div>
+               </div>
+               <!-- CARD: Bebestible5 -->
+               <div class="col-sm-6 col-lg-4 mwrap" data-c="bebestibles" data-aos="fade-up" data-aos-delay="240">
+                  <div class="mcard" data-img="img/menu/Bebestible5.jpg" data-title="Bebestible 5" data-cat="Bebestibles" data-price="$2.000" data-old="$2.400" data-rating="4.8" data-reviews="79" data-cal="210" data-time="9" data-desc="Bebestible preparado para refrescarte con el sabor de Papita Dulce." data-tags="Refrescante,Fresco,Popular">
+                     <div class="mimg"><img src="img/menu/Bebestible5.jpg" alt="Bebestible 5"/><div class="mhrt"><i class="far fa-heart"></i></div></div>
+                     <div class="mbody"><div class="mcat">Bebestibles</div><div class="mtit">Jugo de Naranja</div><div class="mdesc">Preparación refrescante con el sabor dulce y amargo de la frescura de las naranjas</div><div class="mfoot"><div><div class="mprice">$2.000 <small>$2.400</small></div><div class="mstars"><i class="fas fa-star"></i> <span class="text-light-gray text-xs">(79)</span></div></div></div></div>
+                  </div>
+               </div>
+               <!-- CARD: Bebestible6 -->
+               <div class="col-sm-6 col-lg-4 mwrap" data-c="bebestibles" data-aos="fade-up" data-aos-delay="300">
+                  <div class="mcard" data-img="img/menu/Bebestible6.jpg" data-title="Bebestible 6" data-cat="Bebestibles" data-price="$1.800" data-old="$2.200" data-rating="4.7" data-reviews="64" data-cal="185" data-time="9" data-desc="Bebestible ligero y fresco, servido para acompañar tus momentos dulces." data-tags="Ligero,Fresco,Artesanal">
+                     <div class="mimg"><img src="img/menu/Bebestible6.jpg" alt="Bebestible 6"/><div class="mhrt"><i class="far fa-heart"></i></div></div>
+                     <div class="mbody"><div class="mcat">Bebestibles</div><div class="mtit">Limonada</div><div class="mdesc">Bebestible ligero y fresco para tus momentos dulces.</div><div class="mfoot"><div><div class="mprice">$1.800 <small>$2.200</small></div><div class="mstars"><i class="fas fa-star"></i> <span class="text-light-gray text-xs">(64)</span></div></div></div></div>
+                  </div>
+               </div>
+               <!-- CARD: Bebestible7 -->
+               <div class="col-sm-6 col-lg-4 mwrap" data-c="bebestibles" data-aos="fade-up" data-aos-delay="360">
+                  <div class="mcard" data-img="img/menu/Bebestible7.jpg" data-title="Bebestible 7" data-cat="Bebestibles" data-price="$2.100" data-old="$2.500" data-rating="4.8" data-reviews="82" data-cal="220" data-time="10" data-desc="Una preparación especial de la carta para disfrutar caliente y recién servido." data-tags="Especial,Frío,Popular">
+                     <div class="mimg"><img src="img/menu/Bebestible7.jpg" alt="Bebestible 7"/><div class="mbdg new"><i class="fas fa-star"></i> Nuevo</div><div class="mhrt"><i class="far fa-heart"></i></div></div>
+                     <div class="mbody"><div class="mcat">Infusiones</div><div class="mtit">Té de limon</div><div class="mdesc">Preparación especial para disfrutar en un frio dia de lluvia ,infusion preparada con hojas frescas de te y cascaras de limon</div><div class="mfoot"><div><div class="mprice">$2.100 <small>$2.500</small></div><div class="mstars"><i class="fas fa-star"></i> <span class="text-light-gray text-xs">(82)</span></div></div></div></div>
+                  </div>
+               </div>
+               <!-- CARD: Bebestible8 -->
+               <div class="col-sm-6 col-lg-4 mwrap" data-c="bebestibles" data-aos="fade-up" data-aos-delay="420">
+                  <div class="mcard" data-img="img/menu/Bebestible8.jpg" data-title="Bebestible 8" data-cat="Bebestibles" data-price="$2.200" data-old="$2.600" data-rating="4.9" data-reviews="88" data-cal="230" data-time="10" data-desc="Bebestible de sabor suave, una alternativa favorita de nuestros clientes." data-tags="Intenso,Suave,Favorito">
+                     <div class="mimg"><img src="img/menu/Bebestible8.jpg" alt="Bebestible 8"/><div class="mbdg hot"><i class="fas fa-star"></i> Favorito</div><div class="mhrt"><i class="far fa-heart"></i></div></div>
+                     <div class="mbody"><div class="mcat">Bebestibles</div><div class="mtit">Té</div><div class="mdesc">Sabor suabe y calido ,infusion concentrada totalmente de hojas de te frescas.</div><div class="mfoot"><div><div class="mprice">$2.200 <small>$2.600</small></div><div class="mstars"><i class="fas fa-star"></i> <span class="text-light-gray text-xs">(88)</span></div></div></div></div>
+                  </div>
+               </div>
+               <!-- CARD: Bebestible9 -->
+               <div class="col-sm-6 col-lg-4 mwrap" data-c="bebestibles" data-aos="fade-up" data-aos-delay="480">
+                  <div class="mcard" data-img="img/menu/Bebestible9.jpg" data-title="Bebestible 9" data-cat="Bebestibles" data-price="$2.300" data-old="$2.700" data-rating="4.9" data-reviews="91" data-cal="240" data-time="10" data-desc="La última propuesta de la colección de bebestibles, calida y preparada con cariño." data-tags="Colección,Fresco,Especial">
+                     <div class="mimg"><img src="img/menu/Bebestible9.jpg" alt="Bebestible 9"/><div class="mhrt"><i class="far fa-heart"></i></div></div>
+                     <div class="mbody"><div class="mcat">Bebestibles</div><div class="mtit">Chocolate caliente</div><div class="mdesc">Propuesta dulce y calida de la colección de bebestibles elaborado con leche,chocolate y adicional malvaviscos para resaltar esa dulzura.</div><div class="mfoot"><div><div class="mprice">$2.300 <small>$2.700</small></div><div class="mstars"><i class="fas fa-star"></i> <span class="text-light-gray text-xs">(91)</span></div></div></div></div>
+                  </div>
+               </div>
+               <!-- CARD 4:Sandwiches-->
+               <div class="col-sm-6 col-lg-4 mwrap" data-c="sandwiches" data-aos="fade-up" data-aos-delay="240">
+                  <div class="mcard"
+                     data-img="img/menu/sandwich4.jpg"
+                     data-title="Sándwich de pollo y pepinillos"
+                     data-cat="Sandwiches"
+                     data-price="$2.500" data-old="$3.600"
+                     data-rating="5.0" data-reviews="210"
+                     data-cal="710" data-time="15"
+                     data-desc="Pan artesanal con pollo grillado, pepinillos frescos,encurtido de repollo casero, preparado al momento."
+                     data-tags="Casero,Salado,Pollo">
+                     <div class="mimg">
+                        <img src="img/menu/sandwich4.jpg" alt="Sándwich de pollo y pepinillos"/>
+                        <div class="mbdg"><i class="fas fa-star"></i> Más pedido</div>
+                        <div class="mhrt"><i class="far fa-heart"></i></div>
+                     </div>
+                     <div class="mbody">
+                        <div class="mcat">Sandwiches</div>
+                        <div class="mtit">Sándwich de pollo y pepinillos</div>
+                        <div class="mdesc">Pan artesanal con pollo grillado, pepinillos frescos,encurtido de repollo casero, preparado al momento.</div>
+                        <div class="mfoot">
+                           <div>
+                              <div class="mprice">$2.500 <small>$3.600</small></div>
+                              <div class="mstars"><i class="fas fa-star"></i> <span class="text-light-gray text-xs">(210)</span></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- CARD 2.1: sandwiches -->
+               <div class="col-sm-6 col-lg-4 mwrap" data-c="sandwiches" data-aos="fade-up">
+                  <div class="mcard"
+                     data-img="img/menu/Sandwich1.jpg"
+                     data-title="La Cosecha de Papita"
+                     data-cat="Sándwiches"
+                     data-price="$1.800" data-old=""
+                     data-rating="4.5" data-reviews="74"
+                     data-cal="420" data-time="10"
+                     data-desc="Sándwich en pan ciabatta crujiente con vegetales asados, rúcula fresca y ricotta, ideal para acompañar tu café o jugo natural."
+                     data-tags="Vegetariano,Artesanal,Fresco">
+                     <div class="mimg">
+                        <img src="img/menu/Sandwich1.jpg" alt="Sándwich de vegetales"/>
+                        <div class="mhrt"><i class="far fa-heart"></i></div>
+                     </div>
+                     <div class="mbody">
+                        <div class="mcat">Sándwiches</div>
+                        <div class="mtit">La Cosecha de Papita</div>
+                        <div class="mdesc">Sándwich en pan ciabatta crujiente con vegetales asados, rúcula fresca y ricotta, ideal para acompañar tu café o jugo natural.</div>
+                        <div class="mfoot">
+                           <div>
+                              <div class="mprice">$1.800</div>
+                              <div class="mstars"><i class="fas fa-star"></i> <span class="text-light-gray text-xs">(74)</span></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- CARD 4.1: Sandwich2 -->
+               <div class="col-sm-6 col-lg-4 mwrap" data-c="sandwiches" data-aos="fade-up" data-aos-delay="100">
+                  <div class="mcard"
+                     data-img="img/menu/Sandwich2.jpg"
+                     data-title="Sándwich de jamón y queso"
+                     data-cat="Sándwiches"
+                     data-price="$2.200" data-old="$2.800"
+                     data-rating="4.8" data-reviews="96"
+                     data-cal="580" data-time="12"
+                     data-desc="Pan artesanal tostado con jamón, queso derretido y vegetales frescos, preparado al momento."
+                     data-tags="Casero,Salado,Clásico">
+                     <div class="mimg">
+                        <img src="img/menu/Sandwich2.jpg" alt="Sándwich de jamón y queso"/>
+                        <div class="mbdg hot"><i class="fas fa-star"></i> Favorito</div>
+                        <div class="mhrt"><i class="far fa-heart"></i></div>
+                     </div>
+                     <div class="mbody">
+                        <div class="mcat">Sándwiches</div>
+                        <div class="mtit">Sándwich de jamón y queso</div>
+                        <div class="mdesc">Pan artesanal tostado, jamón, queso derretido y vegetales frescos,una explosion de sabor.</div>
+                        <div class="mfoot"><div><div class="mprice">$2.200 <small>$2.800</small></div><div class="mstars"><i class="fas fa-star"></i> <span class="text-light-gray text-xs">(96)</span></div></div></div>
+                     </div>
+                  </div>
+               </div>
+               <!-- CARD 4.2: Sandwich5 -->
+               <div class="col-sm-6 col-lg-4 mwrap" data-c="sandwiches" data-aos="fade-up" data-aos-delay="160">
+                  <div class="mcard"
+                     data-img="img/menu/Sandwich5.jpg"
+                     data-title="Sándwich especial de la casa"
+                     data-cat="Sándwiches"
+                     data-price="$2.600" data-old="$3.200"
+                     data-rating="4.9" data-reviews="84"
+                     data-cal="640" data-time="15"
+                     data-desc="Sándwich artesanal con ingredientes frescos,tofu salteado con especias, relleno abundante de ensalada de verduras y el sabor especial de unas ramas de cilantro."
+                     data-tags="Artesanal,Salado,Especial">
+                     <div class="mimg">
+                        <img src="img/menu/Sandwich5.jpg" alt="Sándwich especial de la casa"/>
+                        <div class="mbdg new"><i class="fas fa-star"></i> Nuevo</div>
+                        <div class="mhrt"><i class="far fa-heart"></i></div>
+                     </div>
+                     <div class="mbody">
+                        <div class="mcat">Sándwiches</div>
+                        <div class="mtit">Sándwich de tofu salteado y verduras</div>
+                        <div class="mdesc">Sándwich artesanal con ingredientes frescos,tofu salteado con especias, relleno abundante de ensalada de verduras y el sabor especial de unas ramas de cilantro.</div>
+                        <div class="mfoot"><div><div class="mprice">$2.600 <small>$3.200</small></div><div class="mstars"><i class="fas fa-star"></i> <span class="text-light-gray text-xs">(84)</span></div></div></div>
+                     </div>
+                  </div>
+               </div>
+               <!-- CARD 4.3: Sandwitch6 -->
+               <div class="col-sm-6 col-lg-4 mwrap" data-c="sandwiches" data-aos="fade-up" data-aos-delay="220">
+                  <div class="mcard"
+                     data-img="img/menu/Sandwitch6.jpg"
+                     data-title="Sándwich de tocino y huevo"
+                     data-cat="Sándwiches"
+                     data-price="$2.900" data-old="$3.500"
+                     data-rating="4.9" data-reviews="102"
+                     data-cal="690" data-time="16"
+                     data-desc="Tocino en pan artesanal con vegetales frescos y una tortilla de huevo."
+                     data-tags="Tocino,Casero,Crujiente">
+                     <div class="mimg">
+                        <img src="img/menu/Sandwitch6.jpg" alt="Sándwich de tocino y huevo"/>
+                        <div class="mbdg hot"><i class="fas fa-star"></i> Más pedido</div>
+                        <div class="mhrt"><i class="far fa-heart"></i></div>
+                     </div>
+                     <div class="mbody">
+                        <div class="mcat">Sándwiches</div>
+                        <div class="mtit">Sándwich de tocino y huevo</div>
+                        <div class="mdesc">Tocino en pan artesanal con vegetales frescos y una tortilla de huevo.</div>
+                        <div class="mfoot"><div><div class="mprice">$2.900 <small>$3.500</small></div><div class="mstars"><i class="fas fa-star"></i> <span class="text-light-gray text-xs">(102)</span></div></div></div>
+                     </div>
+                  </div>
+               </div>
+               <!-- CARD 6: Tartaletas -->
+               <div class="col-sm-6 col-lg-4 mwrap" data-c="tartaletas" data-aos="fade-up" data-aos-delay="160">
+                  <div class="mcard"
+                     data-img="img/menu/tartaleta1.jpg"
+                     data-title="Ronroneo Cítrico"
+                     data-cat="Tartaletas"
+                     data-price="$3.500" data-old="$4.200"
+                     data-rating="4.9" data-reviews="56"
+                     data-cal="390" data-time="8"
+                     data-desc="Base crujiente rellena de crema pastelera y cubierta con frutas frescas de temporada."
+                     data-tags="Dulce,Nuevo,Frutas">
+                     <div class="mimg">
+                        <img src="img/menu/tartaleta1.jpg" alt="Ronroneo citrico"/>
+                        <div class="mbdg new"><i class="fas fa-star"></i> Nuevo</div>
+                        <div class="mhrt"><i class="far fa-heart"></i></div>
+                     </div>
+                     <div class="mbody">
+                        <div class="mcat">Tartaletas</div>
+                        <div class="mtit">Ronroneo Cítrico</div>
+                        <div class="mdesc">Masa crocante artesanal rellenada con una suave y refrescante crema de limón, decorada con arándanos frescos, rodajas de limón y un toque de menta. La dosis perfecta de acidez y dulzura.</div>
+                        <div class="mfoot">
+                           <div>
+                              <div class="mprice">$3.500 <small>$4.200</small></div>
+                              <div class="mstars"><i class="fas fa-star"></i> <span class="text-light-gray text-xs">(56)</span></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- CARD 6.1: Tartaleta 3 -->
+               <div class="col-sm-6 col-lg-4 mwrap" data-c="tartaletas" data-aos="fade-up" data-aos-delay="220">
+                  <div class="mcard"
+                     data-img="img/menu/tartaleta3.jpg"
+                     data-title="Tartaleta de crema de naranja"
+                     data-cat="Tartaletas"
+                     data-price="$3.700" data-old="$4.400"
+                     data-rating="4.8" data-reviews="64"
+                     data-cal="410" data-time="10"
+                     data-desc="Tartaleta artesanal con crema suave de naranja y merengue italiano flameado."
+                     data-tags="Dulce,Frutas,Artesanal">
+                     <div class="mimg">
+                        <img src="img/menu/tartaleta3.jpg" alt="Tartaleta de crema de naranja"/>
+                        <div class="mbdg hot"><i class="fas fa-star"></i> Favorita</div>
+                        <div class="mhrt"><i class="far fa-heart"></i></div>
+                     </div>
+                     <div class="mbody">
+                        <div class="mcat">Tartaletas</div>
+                        <div class="mtit">Tartaleta de crema de naranja</div>
+                        <div class="mdesc">Tartaleta artesanal con crema suave de naranja y merengue italiano flameado.</div>
+                        <div class="mfoot">
+                           <div>
+                              <div class="mprice">$3.700 <small>$4.400</small></div>
+                              <div class="mstars"><i class="fas fa-star"></i> <span class="text-light-gray text-xs">(64)</span></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- CARD 6.2: Tartaleta de frutilla -->
+               <div class="col-sm-6 col-lg-4 mwrap" data-c="tartaletas" data-aos="fade-up" data-aos-delay="280">
+                  <div class="mcard"
+                     data-img="img/menu/Tartaleta_frutilla.jpg"
+                     data-title="Garritas de frutilla"
+                     data-cat="Tartaletas"
+                     data-price="$3.900" data-old="$4.600"
+                     data-rating="4.9" data-reviews="81"
+                     data-cal="420" data-time="10"
+                     data-desc="Base crujiente rellena con crema pastelera y frutillas frescas de temporada."
+                     data-tags="Dulce,Frutilla,Temporada">
+                     <div class="mimg">
+                        <img src="img/menu/Tartaleta_frutilla.jpg" alt="Garritas de frutilla"/>
+                        <div class="mbdg new"><i class="fas fa-star"></i> Nueva</div>
+                        <div class="mhrt"><i class="far fa-heart"></i></div>
+                     </div>
+                     <div class="mbody">
+                        <div class="mcat">Tartaletas</div>
+                        <div class="mtit">Garritas de frutilla</div>
+                        <div class="mdesc">Crema pastelera y frutillas frescas sobre una base crujiente y dorada.</div>
+                        <div class="mfoot">
+                           <div>
+                              <div class="mprice">$3.900 <small>$4.600</small></div>
+                              <div class="mstars"><i class="fas fa-star"></i> <span class="text-light-gray text-xs">(81)</span></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- CARD 6.3: Tartaleta 4 -->
+               <div class="col-sm-6 col-lg-4 mwrap" data-c="tartaletas" data-aos="fade-up" data-aos-delay="340">
+                  <div class="mcard"
+                     data-img="img/menu/tartaleta4.jpg"
+                     data-title="Tartaleta de cereza"
+                     data-cat="Tartaletas"
+                     data-price="$3.600" data-old="$4.300"
+                     data-rating="4.8" data-reviews="67"
+                     data-cal="400" data-time="10"
+                     data-desc="Tartaleta artesanal con mermelada de cereza sobre una base crujiente y dorada."
+                     data-tags="Dulce,Cremosa,Artesanal">
+                     <div class="mimg">
+                        <img src="img/menu/tartaleta4.jpg" alt="Tartaleta de cereza"/>
+                        <div class="mbdg new"><i class="fas fa-star"></i> Nueva</div>
+                        <div class="mhrt"><i class="far fa-heart"></i></div>
+                     </div>
+                     <div class="mbody">
+                        <div class="mcat">Tartaletas</div>
+                        <div class="mtit">Tartaleta de cereza</div>
+                        <div class="mdesc">Mermelada dulce de cereza sobre una base crujiente y dorada, preparada artesanalmente.</div>
+                        <div class="mfoot"><div><div class="mprice">$3.600 <small>$4.300</small></div><div class="mstars"><i class="fas fa-star"></i> <span class="text-light-gray text-xs">(67)</span></div></div></div>
+                     </div>
+                  </div>
+               </div>
+               <!-- CARD 6.4: Tartaleta 5 -->
+               <div class="col-sm-6 col-lg-4 mwrap" data-c="tartaletas" data-aos="fade-up" data-aos-delay="400">
+                  <div class="mcard"
+                     data-img="img/menu/tartaleta5.jpg"
+                     data-title="Tartaleta de manzana"
+                     data-cat="Tartaletas"
+                     data-price="$3.800" data-old="$4.500"
+                     data-rating="4.9" data-reviews="73"
+                     data-cal="420" data-time="10"
+                     data-desc="Tartaleta especial con relleno cremoso con manzanas y una presentación delicada para cualquier ocasión."
+                     data-tags="Dulce,Especial,Artesanal">
+                     <div class="mimg">
+                        <img src="img/menu/tartaleta5.jpg" alt="Tartaleta de manzana"/>
+                        <div class="mbdg hot"><i class="fas fa-star"></i> Favorita</div>
+                        <div class="mhrt"><i class="far fa-heart"></i></div>
+                     </div>
+                     <div class="mbody">
+                        <div class="mcat">Tartaletas</div>
+                        <div class="mtit">Tartaleta de manzana</div>
+                        <div class="mdesc">Relleno cremoso con manzanas y presentación delicada en una tartaleta artesanal.</div>
+                        <div class="mfoot"><div><div class="mprice">$3.800 <small>$4.500</small></div><div class="mstars"><i class="fas fa-star"></i> <span class="text-light-gray text-xs">(73)</span></div></div></div>
+                     </div>
+                  </div>
+               </div>
+               <!-- CARD 7: Postre 1 -->
+               <div class="col-sm-6 col-lg-4 mwrap" data-c="postres" data-aos="fade-up" data-aos-delay="240">
+                  <div class="mcard"
+                     data-img="img/menu/galletas1.jpg"
+                     data-title="Galletas de chispas de chocolate"
+                     data-cat="Postres"
+                     data-price="$2.500" data-old="$3.000"
+                     data-rating="4.9" data-reviews="88"
+                     data-cal="360" data-time="15"
+                     data-desc="Galletas horneadas con chips de chocolate, mantequilla y un toque de vainilla."
+                     data-tags="Dulce,Artesanal,Chocolate">
+                     <div class="mimg">
+                        <img src="img/menu/galletas1.jpg" alt="Galletas de chispas de chocolate"/>
+                        <div class="mbdg hot"><i class="fas fa-star"></i> Favoritas</div>
+                        <div class="mhrt"><i class="far fa-heart"></i></div>
+                     </div>
+                     <div class="mbody">
+                        <div class="mcat">Postres</div>
+                        <div class="mtit">Galletas de chocolate</div>
+                        <div class="mdesc">Galletas horneadas con chips de chocolate y un toque de vainilla.</div>
+                        <div class="mfoot">
+                           <div>
+                              <div class="mprice">$2.500</div>
+                              <div class="mstars"><i class="fas fa-star"></i> <span class="text-light-gray text-xs">(88)</span></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- CARD 8: Postre 2 -->
+               <div class="col-sm-6 col-lg-4 mwrap" data-c="postres" data-aos="fade-up" data-aos-delay="300">
+                  <div class="mcard"
+                     data-img="img/menu/galletas2.jpg"
+                     data-title="Galletas de chips de colores"
+                     data-cat="Postres"
+                     data-price="$2.300" data-old="$2.800"
+                     data-rating="4.8" data-reviews="72"
+                     data-cal="330" data-time="15"
+                     data-desc="Galletas caseras de vainilla con chispas de colores y el dulzor justo para acompañar tu café."
+                     data-tags="Dulce,Casera,Avena">
+                     <div class="mimg">
+                        <img src="img/menu/galletas2.jpg" alt="Galletas de chips de colores"/>
+                        <div class="mbdg new"><i class="fas fa-star"></i> Nuevas</div>
+                        <div class="mhrt"><i class="far fa-heart"></i></div>
+                     </div>
+                     <div class="mbody">
+                        <div class="mcat">Postres</div>
+                        <div class="mtit">Galletas de cips de colores</div>
+                        <div class="mdesc">Galletas caseras de vainilla con chispas de colores y perfectas para acompañar tu café.</div>
+                        <div class="mfoot">
+                           <div>
+                              <div class="mprice">$2.300 <small>$2.800</small></div>
+                              <div class="mstars"><i class="fas fa-star"></i> <span class="text-light-gray text-xs">(72)</span></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- CARD 9: Postre 3 -->
+               <div class="col-sm-6 col-lg-4 mwrap" data-c="postres" data-aos="fade-up" data-aos-delay="360">
+                  <div class="mcard"
+                     data-img="img/menu/galletas3.jpg"
+                     data-title="Galletas de chocolate doble"
+                     data-cat="Postres"
+                     data-price="$2.400" data-old="$2.900"
+                     data-rating="4.8" data-reviews="65"
+                     data-cal="350" data-time="15"
+                     data-desc="Selección de galletas recién horneadas, con sabor casero y una textura irresistible."
+                     data-tags="Dulce,Artesanal,Recién horneadas">
+                     <div class="mimg">
+                        <img src="img/menu/galletas3.jpg" alt="Galletas de chocolate doble"/>
+                        <div class="mhrt"><i class="far fa-heart"></i></div>
+                     </div>
+                     <div class="mbody">
+                        <div class="mcat">Postres</div>
+                        <div class="mtit">Galletas de chocolate doble</div>
+                        <div class="mdesc">Selección recién horneada con sabor casero y textura irresistible.</div>
+                        <div class="mfoot">
+                           <div>
+                              <div class="mprice">$2.400 <small>$2.900</small></div>
+                              <div class="mstars"><i class="fas fa-star"></i> <span class="text-light-gray text-xs">(65)</span></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- CARD 10: Postre 1 -->
+               <div class="col-sm-6 col-lg-4 mwrap" data-c="postres" data-aos="fade-up" data-aos-delay="420">
+                  <div class="mcard"
+                     data-img="img/menu/postre1.jpg"
+                     data-title="Papita calico"
+                     data-cat="Postres"
+                     data-price="$3.200" data-old="$3.800"
+                     data-rating="4.8" data-reviews="69"
+                     data-cal="390" data-time="10"
+                     data-desc="Postre artesanal de la casa, preparado con una textura suave de crema de vainilla,mermelada de durazno y un toque de canela y frambuesas."
+                     data-tags="Dulce,Artesanal,Especial">
+                     <div class="mimg">
+                        <img src="img/menu/postre1.jpg" alt="Papita calico"/>
+                        <div class="mbdg hot"><i class="fas fa-star"></i> Favorito</div>
+                        <div class="mhrt"><i class="far fa-heart"></i></div>
+                     </div>
+                     <div class="mbody">
+                        <div class="mcat">Postres</div>
+                        <div class="mtit">Papita calico</div>
+                        <div class="mdesc">Postre artesanal de la casa, preparado con una textura suave de crema de vainilla,mermelada de durazno y un toque de canela y frambuesas.</div>
+                        <div class="mfoot"><div><div class="mprice">$3.200 <small>$3.800</small></div><div class="mstars"><i class="fas fa-star"></i> <span class="text-light-gray text-xs">(69)</span></div></div></div>
+                     </div>
+                  </div>
+               </div>
+               <!-- CARD 11: Postre 2 -->
+               <div class="col-sm-6 col-lg-4 mwrap" data-c="postres" data-aos="fade-up" data-aos-delay="480">
+                  <div class="mcard"
+                     data-img="img/menu/Postre2.jfif"
+                     data-title="merengues"
+                     data-cat="Postres"
+                     data-price="$3.400" data-old="$4.000"
+                     data-rating="4.7" data-reviews="58"
+                     data-cal="410" data-time="10"
+                     data-desc="Postre dulce,suave con una combinación equilibrada de dulzura y textura delicada."
+                     data-tags="Dulce,Cremoso,Artesanal">
+                     <div class="mimg">
+                        <img src="img/menu/Postre2.jfif" alt="merengues"/>
+                        <div class="mbdg new"><i class="fas fa-star"></i> Nuevo</div>
+                        <div class="mhrt"><i class="far fa-heart"></i></div>
+                     </div>
+                     <div class="mbody">
+                        <div class="mcat">Postres</div>
+                        <div class="mtit">Merengues</div>
+                        <div class="mdesc">Textura delicada y sabor equilibrado en una preparación dulce y artesanal.</div>
+                        <div class="mfoot"><div><div class="mprice">$3.400 <small>$4.000</small></div><div class="mstars"><i class="fas fa-star"></i> <span class="text-light-gray text-xs">(58)</span></div></div></div>
+                     </div>
+                  </div>
+               </div>
+               <!-- CARD 12: Postre 3 -->
+               <div class="col-sm-6 col-lg-4 mwrap" data-c="postres" data-aos="fade-up" data-aos-delay="540">
+                  <div class="mcard"
+                     data-img="img/menu/postre3.jpg"
+                     data-title="Postre especial de frutillas"
+                     data-cat="Postres"
+                     data-price="$3.600" data-old="$4.200"
+                     data-rating="4.8" data-reviews="63"
+                     data-cal="430" data-time="10"
+                     data-desc="Una preparación dulce y especial de Papita Dulce, ideal para compartir o disfrutar a solas."
+                     data-tags="Dulce,Especial,Para compartir">
+                     <div class="mimg">
+                        <img src="img/menu/postre3.jpg" alt="Postre especial de frutillas"/>
+                        <div class="mhrt"><i class="far fa-heart"></i></div>
+                     </div>
+                     <div class="mbody">
+                        <div class="mcat">Postres</div>
+                        <div class="mtit">Postre especial de frutillas</div>
+                        <div class="mdesc">Una opción dulce y especial para compartir o disfrutar en cualquier momento.</div>
+                        <div class="mfoot"><div><div class="mprice">$3.600 <small>$4.200</small></div><div class="mstars"><i class="fas fa-star"></i> <span class="text-light-gray text-xs">(63)</span></div></div></div>
+                     </div>
+                  </div>
+               </div>
+               <!-- CARD 13: Postre 4 -->
+               <div class="col-sm-6 col-lg-4 mwrap" data-c="postres" data-aos="fade-up" data-aos-delay="600">
+                  <div class="mcard"
+                     data-img="img/menu/postre4.jpg"
+                     data-title="Brownie de chocolate con nueces"
+                     data-cat="Postres"
+                     data-price="$3.500" data-old="$4.100"
+                     data-rating="4.9" data-reviews="74"
+                     data-cal="400" data-time="10"
+                     data-desc="Postre de chocolate con nueces y una presentación delicada, preparado artesanalmente."
+                     data-tags="Dulce,Frutas,Fresco">
+                     <div class="mimg">
+                        <img src="img/menu/postre4.jpg" alt="Brownie de chocolate con nueces"/>
+                        <div class="mbdg hot"><i class="fas fa-star"></i> Favorito</div>
+                        <div class="mhrt"><i class="far fa-heart"></i></div>
+                     </div>
+                     <div class="mbody">
+                        <div class="mcat">Postres</div>
+                        <div class="mtit">Brownie de chocolate con nueces</div>
+                        <div class="mdesc">Postre de chocolate con nueces y una presentación delicada, preparado artesanalmente.</div>
+                        <div class="mfoot"><div><div class="mprice">$3.500 <small>$4.100</small></div><div class="mstars"><i class="fas fa-star"></i> <span class="text-light-gray text-xs">(74)</span></div></div></div>
+                     </div>
+                  </div>
+               </div>
+               <!-- CARD 14: Empolvados -->
+               <div class="col-sm-6 col-lg-4 mwrap" data-c="postres" data-aos="fade-up" data-aos-delay="660">
+                  <div class="mcard"
+                     data-img="img/menu/Empolvados.jpeg"
+                     data-title="Empolvados"
+                     data-cat="Postres"
+                     data-price="$2.800" data-old="$3.300"
+                     data-rating="4.9" data-reviews="86"
+                     data-cal="380" data-time="12"
+                     data-desc="Clásicos empolvados suaves y caseros, rellenos con manjar casero para acompañar tu café."
+                     data-tags="Dulce,Clásico,Casero">
+                     <div class="mimg">
+                        <img src="img/menu/Empolvados.jpeg" alt="Empolvados"/>
+                        <div class="mbdg new"><i class="fas fa-star"></i> Clásicos</div>
+                        <div class="mhrt"><i class="far fa-heart"></i></div>
+                     </div>
+                     <div class="mbody">
+                        <div class="mcat">Postres</div>
+                        <div class="mtit">Empolvados</div>
+                        <div class="mdesc">Suaves, caseros y rellenos con manjar casero para acompañar tu café favorito.</div>
+                        <div class="mfoot"><div><div class="mprice">$2.800 <small>$3.300</small></div><div class="mstars"><i class="fas fa-star"></i> <span class="text-light-gray text-xs">(86)</span></div></div></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!-- end #mgrid -->
+            <div class="text-center mt-5"><a href="#menu" class="btn-red" data-menu-action="show-all"><i class="fas fa-th-large"></i>Ver menú completo</a></div>
+         </div>
+      </section>
+	  
+	  
+      <!-- ============================================================
+          MENU DETAIL POPUP MODAL
+         ============================================================ -->
+      <div id="menuPop">
+         <div class="mpbox">
+            <button class="mpclose" id="mpClose"><i class="fas fa-times"></i></button>
+            <div class="mpimg"><img id="mpImg" src="" alt=""/></div>
+            <div class="mpbody">
+               <div id="mpCat"></div>
+               <div id="mpTitle"></div>
+               <div id="mpStars"></div>
+               <div id="mpDesc"></div>
+               <div class="mpvariants" id="mpVariants" role="group" aria-label="Elegir presentación de la torta">
+                  <span class="mpvariants-label">Elige tu presentación</span>
+                  <button class="mvariant active" type="button"
+                     data-img="img/menu/Torta_Panqueque_Naranja.jpeg"
+                     data-title="Torta Panqueque Naranja"
+                     data-price="$16.900" data-old="$20.000"
+                     data-desc="Deliciosa torta completa de capas de panqueques suaves rellena de crema pastelera, mermelada casera de naranja y frutas frescas."
+                     data-tags="Casera,Más vendido,Naranja" data-cal="450" data-time="15" data-rating="4.9" data-reviews="156">Torta completa</button>
+                  <button class="mvariant" type="button"
+                     data-img="img/menu/Trozo_torta_panqueque_naranja.jfif"
+                     data-title="Trozo de Panqueque Naranja"
+                     data-price="$2.000" data-old="$3.200"
+                     data-desc="Una deliciosa porción individual de nuestra torta de panqueques con crema pastelera y mermelada casera de naranja."
+                     data-tags="Porción,Favorita,Naranja" data-cal="150" data-time="5" data-rating="4.9" data-reviews="89">Trozo</button>
+               </div>
+               <div id="mpPrice"></div>
+               <div class="mpmeta" id="mpMeta"></div>
+               <div class="mpqty">
+                  <button class="mpqbtn" id="mpMinus">-</button>
+                  <span class="mpqnum" id="mpQnum">1</span>
+                  <button class="mpqbtn" id="mpPlus">+</button>
+                  <span class="text-sm-alt2 text-gray-muted ms-9">porcion</span>
+               </div>
+               <div class="mptags" id="mpTags"></div>
+               <button class="mpaddcart" id="mpAddCart"><i class="fas fa-shopping-cart"></i>Añadir al carrito</button>
+            </div>
+         </div>
+      </div>
+      <!-- SHOPPING CART -->
+      <div id="cartPanel" aria-hidden="true">
+         <div class="cartbox" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+            <div class="carthead">
+               <div>
+                  <span class="slbl">Tu pedido</span>
+                  <h3 id="cartTitle">Carrito</h3>
+               </div>
+               <button class="cartclose" id="cartClose" type="button" aria-label="Cerrar carrito"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="cartitems" id="cartItems"></div>
+            <div class="cartempty" id="cartEmpty">
+               <i class="fas fa-shopping-basket"></i>
+               <p>Tu carrito está vacío.</p>
+               <button class="btn-red" id="cartContinue" type="button"><i class="fas fa-utensils"></i>Ver el menú</button>
+            </div>
+            <div class="cartfoot" id="cartFoot">
+               <div class="cartsummary" id="cartSummary" aria-live="polite"></div>
+               <div class="cartsum"><span>Subtotal</span><strong id="cartSubtotal">$0</strong></div>
+               <button class="cartcheckout" id="cartCheckout" type="button"><i class="fas fa-check"></i>Confirmar pedido</button>
+               <button class="cartclear" id="cartClear" type="button">Vaciar carrito</button>
+               <p class="cartnotice" id="cartNotice" role="status"></p>
+            </div>
+         </div>
+      </div>
+      <!-- SIMULACION DE PAGO -->
+      <div id="paymentPanel" aria-hidden="true">
+         <form class="paymentform" id="paymentForm" novalidate>
+            <button class="paymentback" id="paymentBack" type="button"><i class="fas fa-arrow-left"></i> Volver al carrito</button>
+            <div class="paymenthead"><span class="slbl">Pago</span><h2>Completar pago</h2></div>
+            <div class="paymenttotal"><span>Total a pagar</span><strong id="paymentTotal">$0</strong></div>
+            <div class="payment-order" id="paymentOrderSummary"></div>
+            <p class="paymenthint">Ingrese sus datos de pago.</p>
+            <label for="payName">Nombre del titular</label>
+            <input id="payName" type="text" autocomplete="cc-name" placeholder="Nombre completo" required />
+            <label for="payEmail">Correo electrónico</label>
+            <input id="payEmail" type="email" autocomplete="email" placeholder="tu@email.com" required />
+            <label for="payCard">Número de tarjeta</label>
+            <input id="payCard" type="text" inputmode="numeric" autocomplete="cc-number" placeholder="4242 4242 4242 4242" maxlength="19" required />
+            <div class="paymentrow">
+               <div><label for="payExpiry">Vencimiento</label><input id="payExpiry" type="text" inputmode="numeric" placeholder="MM/AA" maxlength="5" required /></div>
+               <div><label for="payCvv">CVV</label><input id="payCvv" type="password" inputmode="numeric" placeholder="123" maxlength="4" required /></div>
+            </div>
+            <p class="paymenterror" id="paymentError" role="alert"></p>
+            <button class="cartcheckout" id="paySubmit" type="submit"><i class="fas fa-lock"></i>Simular pago</button>
+            <div class="payment-success" id="paymentSuccess" role="status" aria-live="polite"></div>
+         </form>
+      </div>
+      <!-- LOGIN Y REGISTRO-->
+      <div id="accountPanel" aria-hidden="true">
+         <div class="accountbox" role="dialog" aria-modal="true" aria-labelledby="accountTitle">
+            <button class="accountclose" id="accountClose" type="button" aria-label="Cerrar mi cuenta"><i class="fas fa-times"></i></button>
+            <div class="account-brand"><i class="fas fa-user-circle"></i><span>Papita Dulce</span></div>
+            <h2 id="accountTitle">Bienvenido/a</h2>
+            <p class="accountintro">Administra tu cuenta para guardar tus datos y revisar tus pedidos.</p>
+            <div class="account-tabs" role="tablist">
+               <button class="account-tab active" type="button" data-account-view="login">Iniciar sesión</button>
+               <button class="account-tab" type="button" data-account-view="register">Registrarse</button>
+            </div>
+            <form class="account-view active" id="loginView" data-view="login" novalidate>
+               <label for="loginEmail">Correo electrónico</label>
+               <input id="loginEmail" type="email" placeholder="tu@email.com" required />
+               <label for="loginPassword">Contraseña</label>
+               <input id="loginPassword" type="password" placeholder="Tu contraseña" required />
+               <button class="account-submit" type="submit"><i class="fas fa-sign-in-alt"></i>Iniciar sesión</button>
+               <button class="account-link" id="forgotPassword" type="button">¿Olvidaste tu contraseña?</button>
+            </form>
+            <form class="account-view" id="registerView" data-view="register" novalidate>
+               <label for="registerName">Nombre completo</label>
+               <input id="registerName" type="text" placeholder="Tu nombre" required />
+               <label for="registerEmail">Correo electrónico</label>
+               <input id="registerEmail" type="email" placeholder="tu@email.com" required />
+               <label for="registerPassword">Contraseña</label>
+               <input id="registerPassword" type="password" placeholder="Crea una contraseña segura" required />
+               <ul class="password-rules" id="passwordRules">
+                  <li data-rule="length"><i class="fas fa-circle"></i>8 caracteres como mínimo</li>
+                  <li data-rule="uppercase"><i class="fas fa-circle"></i>Una letra mayúscula</li>
+                  <li data-rule="number"><i class="fas fa-circle"></i>Un número</li>
+                  <li data-rule="special"><i class="fas fa-circle"></i>Un carácter especial</li>
+               </ul>
+               <label for="registerConfirm">Confirmar contraseña</label>
+               <input id="registerConfirm" type="password" placeholder="Repite tu contraseña" required />
+               <div class="account-fields-row">
+                  <div>
+                     <label for="registerRegion">Región</label>
+                     <select id="registerRegion" required><option value="">Selecciona tu región</option></select>
+                  </div>
+                  <div>
+                     <label for="registerCommune">Comuna</label>
+                     <select id="registerCommune" required disabled><option value="">Primero elige una región</option></select>
+                  </div>
+               </div>
+               <button class="account-submit" type="submit"><i class="fas fa-user-plus"></i>Crear cuenta</button>
+            </form>
+            <form class="account-view" id="recoveryView" data-view="recovery" novalidate>
+               <button class="account-link account-back" id="backToLogin" type="button"><i class="fas fa-arrow-left"></i> Volver a iniciar sesión</button>
+               <h4>Recuperar contraseña</h4>
+               <p class="accounthelp">Te enviaremos instrucciones para recuperar el acceso.</p>
+               <label for="recoveryEmail">Correo electrónico</label>
+               <input id="recoveryEmail" type="email" placeholder="tu@email.com" required />
+               <button class="account-submit" type="submit"><i class="fas fa-envelope"></i>Enviar instrucciones</button>
+            </form>
+            <p class="accountmessage" id="accountMessage" role="status"></p>
+         </div>
+      </div>
+      <!-- SPECIAL OFFER -->
+      <section id="special">
+         <div class="spbg"></div>
+         <div class="container pos-rel-z2">
+            <div class="row align-items-center g-5">
+               <div class="col-lg-6" data-aos="fade-right">
+                  <div class="sptag"><i class="fas fa-bolt me-1"></i>Oferta por tiempo limitado</div>
+                  <h2 class="sptitle">Obten un 30% de descuento<br/>Nuestro sello distintivo<br/><span>Torta</span> papita amor </h2>
+                  <p class="spdesc">Aprovecha la especialidad del fin de semana en Papita Dulce: llévate nuestro pastel estrella acompañado de un café de especialidad a un precio irresistible. </p>
+                  <div class="cdwrap">
+                     <div class="cditem"><span class="cdnum" id="cdH">08</span><span class="cdlbl">Horas</span></div>
+                     <div class="cditem"><span class="cdnum" id="cdM">45</span><span class="cdlbl">Minutos</span></div>
+                     <div class="cditem"><span class="cdnum" id="cdS">30</span><span class="cdlbl">Segundos</span></div>
+                  </div>
+                  <a href="#menu" class="btn-red"><i class="fas fa-shopping-cart"></i>Aprovechar oferta</a>
+               </div>
+               <div class="col-lg-6" data-aos="fade-left">
+                  <div class="spimgw">
+                     <div class="spglow"></div>
+                     <div class="sppbdg"><span class="old">$24.990</span><span class="np">$17.490</span></div>
+                     <img src="img/menu/tortapapita.jfif" alt="Torta Papita"/>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+	  
+	  
+      <!-- ============================================================
+         PRODUCTOS FAVORITOS
+         ============================================================ -->
+      <section id="gallery">
+         <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+               <span class="slbl">Nuestros favoritos</span>
+               <h2 class="stitle">Conoce nuestra <span>pastelería</span></h2>
+               <div class="sline"></div>
+            </div>
+            <div class="ggrid" data-aos="fade-up">
+               <div class="gitem"
+                  data-gi="0"
+                  data-gimg="img/menu/Torta_Trufa.jpeg"
+                  data-gtitle="Tortas gourmet"
+                  data-gdesc="Tortas artesanales preparadas con ingredientes seleccionados y recetas de la casa.">
+                  <img src="img/menu/Torta_Trufa.jpeg" alt="tortas"/>
+                  <div class="gover"><span><i class="fas fa-expand-alt"></i> Tortas gourmet</span></div>
+               </div>
+               <div class="gitem"
+                  data-gi="1"
+                  data-gimg="img/menu/Bebestible5.jpg" 
+                  data-gtitle="Bebestibles de la casa"
+                  data-gdesc="Bebestibles frescos preparados para acompañar tus preparaciones favoritas.">
+                  <img src="img/menu/Bebestible5.jpg" alt="bebestibles"/>
+                  <div class="gover"><span><i class="fas fa-expand-alt"></i> Bebestibles de la casa</span></div>
+               </div>
+               <div class="gitem"
+                  data-gi="2"
+                  data-gimg="img/menu/sandwich4.jpg"
+                  data-gtitle="Sándwiches crujientes"
+                  data-gdesc="Sándwiches preparados con ingredientes frescos, rellenos abundantes y mucho sabor.">
+                  <img src="img/menu/sandwich4.jpg" alt="sandwiches"/>
+                  <div class="gover"><span><i class="fas fa-expand-alt"></i> Sándwiches crujientes</span></div>
+               </div>
+               <div class="gitem"
+                  data-gi="3"
+                  data-gimg="img/menu/Arroz_con_Leche.webp"
+                  data-gtitle="Postres dulces"
+                  data-gdesc="Postres artesanales preparados con recetas caseras e ingredientes frescos de temporada.">
+                  <img src="img/menu/Arroz_con_Leche.webp" alt="Postres"/>
+                  <div class="gover"><span><i class="fas fa-expand-alt"></i> Postres dulces</span></div>
+               </div>
+               <div class="gitem"
+                  data-gi="4"
+                  data-gimg="img/menu/tartaleta4.jpg"
+                  data-gtitle="Tartaletas frescas"
+                  data-gdesc="Tartaletas artesanales con rellenos cremosos, frutas frescas y bases crujientes.">
+                  <img src="img/menu/tartaleta4.jpg" alt="tartaletas"/>
+                  <div class="gover"><span><i class="fas fa-expand-alt"></i> Tartaletas frescas</span></div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- GALLERY POPUP -->
+      <div id="galPop">
+         <div class="gpbox">
+            <button class="gpclose" id="gpClose"><i class="fas fa-times"></i></button>
+            <img id="gpImg" src="" alt=""/>
+            <div class="gpcap">
+               <h5 id="gpTitle"></h5>
+               <p id="gpDesc"></p>
+            </div>
+            <div class="gpnav">
+                  <button id="gpPrev"><i class="fas fa-chevron-left me-1"></i>Anterior</button>
+               <button id="gpNext">Siguiente <i class="fas fa-chevron-right ms-1"></i></button>
+            </div>
+         </div>
+      </div>
+	  
+	  
+      <!-- ============================================================
+         NUESTRA HISTORIA
+         ============================================================ -->
+      <section id="history">
+         <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+               <span class="slbl">Nuestra trayectoria</span>
+               <h2 class="stitle">Una historia de <span>Pasteleria</span></h2>
+               <div class="sline"></div>
+               <p class="sdesc mx-auto max-w-480">Desde la primera receta hasta ser el refugio dulce favorito de la ciudad: una historia escrita a puras huellitas y pasión.</p>
+            </div>
+            <div class="timeline" data-aos="fade-up">
+               <div class="tli"><div class="tl-left"><div class="tlyear">2019</div><h5>Nacimiento de Papita Dulce</h5><p>Nacemos como un concepto de cafetería y pastelería artesanal gatuna, fusionando la calidez de recetas tradicionales con una estética urbana. En poco tiempo logramos posicionarnos como el lugar favorito de la ciudad para disfrutar de ciabattas gourmet y postres de autor.</p></div><div class="tl-center"><div class="tldot"></div></div><div class="tl-right"></div></div>
+               <div class="tli"><div class="tl-left"></div><div class="tl-center"><div class="tldot"></div></div><div class="tl-right"><div class="tlyear">2021</div><h5>Consolidación de la Carta</h5><p>Lanzamos nuestra icónica Torta Papita Amor y las tartaletas artesanales, creando una comunidad fiel alrededor del concepto artesanal dulce y salado.</p></div></div>
+               <div class="tli"><div class="tl-left"><div class="tlyear">2024</div><h5>Transformación del Espacio</h5><p>Transformamos nuestro espacio para ofrecer una experiencia más moderna y acogedora, manteniendo la esencia de nuestra marca.</p></div><div class="tl-center"><div class="tldot"></div></div><div class="tl-right"></div></div>
+               <div class="tli"><div class="tl-left"></div><div class="tl-center"><div class="tldot"></div></div><div class="tl-right"><div class="tlyear">2025</div><h5>Plataforma Web y E-Commerce</h5><p>Conectamos el local físico con nuestro sitio web, integrando pedidos personalizados, sistema de reservas y beneficios exclusivos a través del Club Papita.</p></div></div>
+               <div class="tli"><div class="tl-left"><div class="tlyear">2026</div><h5>Expansión Nacional</h5><p>Actualmente operamos en 5 comunas a través de Chile  con una plataforma de entrega online que maneja más de 10,000 pedidos a la semana y sigue creciendo cada día.</p></div><div class="tl-center"><div class="tldot"></div></div><div class="tl-right"></div></div>
+            </div>
+         </div>
+      </section>
+	  
+	  
+      <!-- CHEFS -->
+      <section id="chefs">
+         <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+               <span class="slbl">El equipo de cocina</span>
+               <h2 class="stitle">Conoce Nuestro equipo de <span>Chefs</span></h2>
+               <div class="sline"></div>
+            </div>
+            <div class="row g-4">
+               <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+                  <div class="chcard">
+                     <div class="chimg">
+                        <img src="img/chefs/chef1.jfif" alt=""/>
+                        <div class="chsoc"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div>
+                     </div>
+                     <div class="chbody">
+                        <div class="chnm">Ramon Perez</div>
+                        <div class="chrole">Jefe de cocina</div>
+                        <div class="chexp">12 años de experiencia</div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="80">
+                  <div class="chcard">
+                     <div class="chimg">
+                        <img src="img/chefs/chef2.jfif" alt=""/>
+                        <div class="chsoc"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div>
+                     </div>
+                     <div class="chbody">
+                        <div class="chnm">Johnny Bravo</div>
+                        <div class="chrole">Maestro pastelero</div>
+                        <div class="chexp">8 años de experiencia</div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="160">
+                  <div class="chcard">
+                     <div class="chimg">
+                        <img src="img/chefs/chef3.jfif" alt=""/>
+                        <div class="chsoc"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div>
+                     </div>
+                     <div class="chbody">
+                        <div class="chnm">Pepito Clavito</div>
+                        <div class="chrole">Pastelero</div>
+                        <div class="chexp">10 años de experiencia</div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="240">
+                  <div class="chcard">
+                     <div class="chimg">
+                        <img src="img/chefs/chef4.jfif" alt=""/>
+                        <div class="chsoc"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div>
+                     </div>
+                     <div class="chbody">
+                        <div class="chnm">Carlos Lopez</div>
+                        <div class="chrole">Ayudante pastelero</div>
+                        <div class="chexp">9 años de experiencia</div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+	  
+	  
+      <!-- HORAS -->
+      <section id="hours">
+         <div class="hrsbg"></div>
+         <div class="container pos-rel-z2">
+            <div class="text-center mb-5" data-aos="fade-up">
+               <span class="slbl slbl-mint">Horario</span>
+               <h2 class="stitle text-white">Estamos a <span class="text-secondary">tu servicio</span></h2>
+               <div class="sline"></div>
+            </div>
+            <div class="row g-4 align-items-start">
+               <div class="col-lg-5" data-aos="fade-right">
+                  <div class="hrscard">
+                     <div class="hrsrow">
+                        <span class="hrsday"><i class="fas fa-calendar-day me-2 text-secondary"></i>Lunes - Martes</span>
+                        <div class="d-flex align-items-center gap-2">
+                           <div class="hdot off"></div>
+                           <span class="hrstime text-red">Cerrado</span>
+                        </div>
+                     </div>
+                     <div class="hrsrow">
+                        <span class="hrsday"><i class="fas fa-calendar-day me-2 text-secondary"></i>Miércoles - Jueves</span>
+                        <div class="d-flex align-items-center gap-2">
+                           <div class="hdot on"></div>
+                           <span class="hrstime">09:00 AM - 10:00 PM</span>
+                        </div>
+                     </div>
+                     <div class="hrsrow">
+                        <span class="hrsday"><i class="fas fa-calendar-day me-2 text-secondary"></i>Viernes</span>
+                        <div class="d-flex align-items-center gap-2">
+                           <div class="hdot on"></div>
+                           <span class="hrstime">09:00 AM - 11:00 PM</span>
+                        </div>
+                     </div>
+                     <div class="hrsrow">
+                        <span class="hrsday"><i class="fas fa-calendar-day me-2 text-secondary"></i>Sábado</span>
+                        <div class="d-flex align-items-center gap-2">
+                           <div class="hdot on"></div>
+                           <span class="hrstime">10:00 AM - 11:30 PM</span>
+                        </div>
+                     </div>
+                     <div class="hrsrow">
+                        <span class="hrsday"><i class="fas fa-calendar-day me-2 text-secondary"></i>Domingo</span>
+                        <div class="d-flex align-items-center gap-2">
+                           <div class="hdot on"></div>
+                           <span class="hrstime">11:00 AM - 09:00 PM</span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-3" data-aos="zoom-in">
+                  <div class="hrscta">
+                     <i class="fas fa-truck-fast fa-2x mb-3 text-icon-light"></i>
+                     <h4>Ordena Online</h4>
+                     <p>Recibe tus preparaciones favoritas en 25 minutos</p>
+                     <a href="#menu" class="btnw">Ordenar Ahora</a>
+                  </div>
+               </div>
+               <div class="col-lg-4" data-aos="fade-left">
+                  <div class="hrscard">
+                     <h5 class="text-white mb-0"><i class="fas fa-map-marker-alt me-2 text-secondary"></i>Encuéntranos</h5>
+                     <div class="hrsrow"><span class="hrsday"><i class="fas fa-location-dot me-2 text-secondary"></i>Dirección</span><span class="hrstime text-sm-alt">Av. Papita Dulce,Santiago,Chile</span></div>
+                     <div class="hrsrow"><span class="hrsday"><i class="fas fa-phone me-2 text-secondary"></i>Teléfono</span><span class="hrstime text-sm-alt">+56 9 1234 5678</span></div>
+                     <div class="hrsrow"><span class="hrsday"><i class="fas fa-envelope me-2 text-secondary"></i>Correo Electrónico</span><span class="hrstime text-sm-alt">papitadulce@gmail.com</span></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+	  
+	  
+      <!-- TESTIMONIOS CLIENTES-->
+      <section id="testimonials">
+         <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+               <span class="slbl">Lo que dicen las personas</span>
+               <h2 class="stitle">Nuestros clientes <span>Opinión</span></h2>
+               <div class="sline"></div>
+            </div>
+            <div class="swiper tesSwiper" data-aos="fade-up">
+               <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                     <div class="tescard">
+                        <div class="tesq">"</div>
+                        <div class="tess"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="testxt">Sinceramente, son las mejores tartaletas de frutilla que he probado nunca. La "Garritas de frutilla" es increíble: los bordes están perfectamente crujientes, el interior es un abrazo reconfortante directo a tu corazon… ¡y esas frutillas tan frescas! Ahora venimos todos los viernes.</p>
+                        <div class="tesauth">
+                           <img src="img/testimonial/testimonio4.jfif" alt=""/>
+                           <div>
+                              <div class="tesnm">Aitor Tilla</div>
+                              <div class="tesrl">Cliente frecuente</div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="swiper-slide">
+                     <div class="tescard">
+                        <div class="tesq">"</div>
+                        <div class="tess"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="testxt">Pedí a domicilio y mi sándwich junto a mi café llegó caliente y recién hecho en 20 minutos. Totalmente increíble. Papita Dulce se ha convertido, sin lugar a dudas, en mi sitio favorito para comer comida casera.</p>
+                        <div class="tesauth">
+                           <img src="img/testimonial/testimonio5.jfif" alt=""/>
+                           <div>
+                              <div class="tesnm">Peter Parker</div>
+                              <div class="tesrl">Bloguero</div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="swiper-slide">
+                     <div class="tescard">
+                        <div class="tesq">"</div>
+                        <div class="tess"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="testxt">El arroz con leche fue un abrazo directo a mi corazon me dejó alucinado. No esperaba esa calidad en un local . El ambiente es estupendo y el personal, muy amable. ¡Lo recomiendo encarecidamente!</p>
+                        <div class="tesauth">
+                           <img src="img/testimonial/testimonio1.jfif" alt=""/>
+                           <div>
+                              <div class="tesnm">Marcia Ana</div>
+                              <div class="tesrl">Apasionados de los postres</div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="swiper-slide">
+                     <div class="tescard">
+                        <div class="tesq">"</div>
+                        <div class="tess"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="testxt">Se encargaron del catering de nuestra fiesta de oficina para 50 personas y todo salió a la perfección. La comida estaba fresca, deliciosa, llegó a tiempo y tenía una presentación impecable. ¡La torta papita dulce fue toda una estrella para este evento!</p>
+                        <div class="tesauth">
+                           <img src="img/testimonial/testimonio3.jfif" alt=""/>
+                           <div>
+                              <div class="tesnm">Elvis Cocho</div>
+                              <div class="tesrl">Cliente empresarial</div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="swiper-pagination mt-4 swiper-pagination-static"></div>
+            </div>
+         </div>
+      </section>
+	  
+      <!-- RESERVACION-->
+      <section id="reservation">
+         <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+               <span class="slbl">Reservar una Mesa</span>
+               <h2 class="stitle">Haz una <span>Reserva</span></h2>
+               <div class="sline"></div>
+               <p class="sdesc mx-auto max-w-480">Reserva tu mesa para una junta especial. Recomendamos reservar con 24 horas de anticipación para un evento sensacional.</p>
+            </div>
+            <div class="row g-4 align-items-start">
+               <div class="col-lg-4" data-aos="fade-right">
+                  <div class="dark-box">
+                     <h4 class="text-white mb-2 h4-large">Información de Contacto</h4>
+                     <p class="text-white-dim text-sm-alt3 mb-4">Estamos encantados de ayudarte a planificar la experiencia culinaria perfecta.</p>
+                     <div class="d-flex flex-column gap-3">
+                        <div class="d-flex align-items-center gap-3">
+                           <div class="icon-box"><i class="fas fa-clock"></i></div>
+                           <div><strong class="info-label">Horario de atención</strong><span class="info-value">Miér - Dom, 9 AM - 11 PM</span></div>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                           <div class="icon-box"><i class="fas fa-phone-alt"></i></div>
+                           <div><strong class="info-label">Reservar</strong><span class="info-value">+56 9 1234 5678</span></div>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                           <div class="icon-box"><i class="fas fa-users"></i></div>
+                           <div><strong class="info-label">Comidas Grupales</strong><span class="info-value">Menús especiales para 10+ huéspedes</span></div>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                           <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
+                           <div><strong class="info-label">Ubicación</strong><span class="info-value">Av. Papita Dulce, Santiago, Chile</span></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-8" data-aos="fade-left">
+                  <div class="fcard">
+                     <div class="row g-3">
+                        <div class="col-sm-6"><label class="flbl">Nombre completo *</label><input type="text" class="fctrl" placeholder="Juan Perez"/></div>
+                        <div class="col-sm-6"><label class="flbl">Número de teléfono *</label><input type="tel" class="fctrl" placeholder="+56 9 1234 5678"/></div>
+                        <div class="col-sm-6"><label class="flbl">Dirección de correo electrónico *</label><input type="email" class="fctrl" placeholder="tu@email.com"/></div>
+                        <div class="col-sm-6">
+                           <label class="flbl">Número de invitados *</label>
+                           <select class="fctrl">
+                              <option>1 Persona</option>
+                              <option>2 Personas</option>
+                              <option>3 - 4 Personas</option>
+                              <option>5 - 6 Personas</option>
+                              <option>7 -10 Personas</option>
+                              <option>+10 Personas</option>
+                           </select>
+                        </div>
+                        <div class="col-sm-6"><label class="flbl">Fecha *</label><input type="date" class="fctrl"/></div>
+                        <div class="col-sm-6">
+                           <label class="flbl">Hora *</label>
+                           <select class="fctrl">
+                              <option>09:00 AM</option>
+                              <option>10:00 AM</option>
+                              <option>11:00 AM</option>
+                              <option>12:00 PM</option>
+                              <option>01:00 PM</option>
+                              <option>02:00 PM</option>
+                              <option>06:00 PM</option>
+                              <option>07:00 PM</option>
+                              <option>08:00 PM</option>
+                              <option>09:00 PM</option>
+                              <option>10:00 PM</option>
+                           </select>
+                        </div>
+                        <div class="col-12"><label class="flbl">Solicitudes especiales</label><textarea class="fctrl" rows="3" placeholder="Alergias, ocasiones especiales..."></textarea></div>
+                        <div class="col-12"><button class="btn-red w-100 justify-content-center" id="resBtn"><i class="fas fa-calendar-check"></i>Confirmar Reserva</button></div>
+                     </div>
+                     <div class="sucmsg" id="resOk">
+                        <i class="fas fa-check-circle"></i>
+                        <p>¡Mesa reservada! Te lo confirmaremos por correo electrónico en breve.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+	  
+      <!-- BLOG -->
+      <section id="blog">
+         <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+               <span class="slbl">Noticias &amp; Actualizaciones</span>
+               <h2 class="stitle">Nuestros últimos <span>artículos</span> del blog</h2>
+               <div class="sline"></div>
+            </div>
+            <div class="row g-4">
+               <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+                  <div class="blcard">
+                     <div class="blimg">
+                        <img src="img/menu/Torta_Panqueque_Naranja.jpeg" alt=""/>
+                        <div class="bldatebdg"><span class="bd">14</span><span class="bm">Mar</span></div>
+                     </div>
+                     <div class="blbody">
+                        <div class="bltag">Secreto de reposteria</div>
+                        <div class="bltit"><a href="#">¿Pastelería sin culpas? Cómo logramos el equilibrio entre lo dulce y lo fresco.</a></div>
+                        <div class="blmeta"><span><i class="fas fa-user"></i>Casimiro Mirón</span><span><i class="fas fa-comment"></i>24 comentarios</span></div>
+                        <a href="#" class="blmore">Leer más <i class="fas fa-arrow-right"></i></a>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="80">
+                  <div class="blcard">
+                     <div class="blimg">
+                        <img src="img/menu/Sandwich1.jpg" alt=""/>
+                        <div class="bldatebdg"><span class="bd">28</span><span class="bm">Feb</span></div>
+                     </div>
+                     <div class="blbody">
+                        <div class="bltag">Ciencia de los alimentos</div>
+                        <div class="bltit"><a href="#">¿Se está volviendo más saludable la comida rápida? Esto es lo que descubrimos.</a></div>
+                        <div class="blmeta"><span><i class="fas fa-user"></i>Pepe Nillo</span><span><i class="fas fa-comment"></i>18 comentarios</span></div>
+                        <a href="#" class="blmore">Leer más <i class="fas fa-arrow-right"></i></a>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="160">
+                  <div class="blcard">
+                     <div class="blimg">
+                        <img src="img/menu/Postre2.jfif" alt=""/>
+                        <div class="bldatebdg"><span class="bd">05</span><span class="bm">Jun</span></div>
+                     </div>
+                     <div class="blbody">
+                        <div class="bltag">Recetas</div>
+                        <div class="bltit"><a href="#">Innovadora receta casera de crujientes merengues</a></div>
+                        <div class="blmeta"><span><i class="fas fa-user"></i>Chef Elena Tilla</span><span><i class="fas fa-comment"></i>32 comentarios</span></div>
+                        <a href="#" class="blmore">Leer más <i class="fas fa-arrow-right"></i></a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+	  
+      <!--SUBSCRIPCION -->
+      <section id="newsletter">
+         <div class="nlbg"></div>
+         <div class="container">
+            <div class="nlw text-center" data-aos="zoom-in">
+               <span class="slbl text-white-light">Mantente conectado</span>
+               <h2 class="mb-3 text-white">Suscríbete y obtén <span class="text-secondary">ofertas exclusivas</span></h2>
+               <p class="mb-4 text-white-muted">Obtén 15% de descuento en tu primer pedido más acceso anticipado a nuevas preparaciones del menú</p>
+               <div class="nl-form-wrap">
+                  <input class="nlinput" type="email" id="nlEmail" placeholder="Ingresa tu dirección de correo electrónico..."/>
+                  <button class="nlbtn" id="nlBtn"><i class="fas fa-paper-plane me-1"></i>Subscríbete</button>
+               </div>
+               <p class="text-white-faded text-sm"><i class="fas fa-lock me-1"></i>Sin spam, desuscríbete en cualquier momento.</p>
+            </div>
+         </div>
+      </section>
+	  
+      <!-- ============================================================
+       CONTACTOS TIENDA
+         ============================================================ -->
+   
+      <section id="contact-section">
+         <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+               <span class="slbl">Ponte en contacto</span>
+               <h2 class="stitle">Contactos</h2>
+               <div class="sline"></div>
+               <p class="sdesc mx-auto max-w-480">¿Tienes una pregunta, comentarios o quieres planificar un evento especial? Nos encantaría saber de ti.</p>
+            </div>
+
+            <div class="row g-4">
+               <div class="col-lg-4" data-aos="fade-right">
+                  <div class="ctdark">
+                     <h4>¡Hablemos!</h4>
+                     <p class="ctsub">Por lo general, respondemos en un plazo de 2 horas durante el horario laboral.</p>
+                     <div class="ctitem">
+                        <div class="cticon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="ctinfo"><strong>Dirección</strong><span>Av. Papita Dulce,<br/>Santiago, Chile</span></div>
+                     </div>
+                     <div class="ctitem">
+                        <div class="cticon"><i class="fas fa-phone-alt"></i></div>
+                        <div class="ctinfo"><strong>Teléfono</strong><span>+56 9 1234 5678</span></div>
+                     </div>
+                     <div class="ctitem">
+                        <div class="cticon"><i class="fas fa-envelope"></i></div>
+                        <div class="ctinfo"><strong>Correo electrónico</strong><span>papitadulce@gmail.com</span></div>
+                     </div>
+                     <div class="ctitem">
+                        <div class="cticon"><i class="fas fa-clock"></i></div>
+                        <div class="ctinfo"><strong>Horario laboral</strong><span>Mar - Sab: 9 AM - 11 PM</span></div>
+                     </div>
+                     <div class="ctsocrow">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-8" data-aos="fade-left">
+                  <div class="fcard">
+                     <div class="row g-3">
+                        <div class="col-sm-6"><label class="flbl">Nombre *</label><input type="text" class="fctrl" placeholder="Papita Dulce"/></div>
+                        <div class="col-sm-6"><label class="flbl">Correo electrónico *</label><input type="email" class="fctrl" placeholder="papitadulce@gmail.com"/></div>
+                        <div class="col-sm-6"><label class="flbl">Numero telefónico</label><input type="tel" class="fctrl" placeholder="+56 9 1234 5678"/></div>
+                        <div class="col-sm-6">
+                           <label class="flbl">Asunto *</label>
+                           <select class="fctrl">
+                              <option>Consulta general</option>
+                              <option>Catering &amp; Eventos</option>
+                              <option>Comentario</option>
+                              <option>Asociación</option>
+                              <option>Medios &amp; Prensa</option>
+                           </select>
+                        </div>
+                        <div class="col-12"><label class="flbl">Mensaje *</label><textarea class="fctrl" rows="5" placeholder="Escribe tu mensaje aquí..."></textarea></div>
+                        <div class="col-12"><button class="btn-red" id="ctcBtn"><i class="fas fa-paper-plane"></i>Enviar Mensaje</button></div>
+                     </div>
+                     <div class="sucmsg" id="ctcOk">
+                        <i class="fas fa-check-circle"></i>
+                        <p>¡Mensaje enviado! Responderemos en un plazo de 2 horas.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+	  
+      <!-- FOOTER -->
+      <footer>
+         <div class="container">
+            <div class="row g-5">
+               <div class="col-lg-4">
+                  <div class="fnm">Papita<span>Dulce</span></div>
+                  <p class="fdesc">Reunimos los mejores sabores del mundo en una experiencia rápida, amable y asequible. Cada comida está elaborada con amor.</p>
+                  <div class="fsoc">
+                     <a href="#"><i class="fab fa-facebook-f"></i></a>
+                     <a href="#"><i class="fab fa-instagram"></i></a>
+                     <a href="#"><i class="fab fa-twitter"></i></a>
+                     <a href="#"><i class="fab fa-youtube"></i></a>
+                     <a href="#"><i class="fab fa-tiktok"></i></a>
+                  </div>
+               </div>
+               <div class="col-sm-6 col-lg-2">
+                  <div class="ftit">Enlaces rápidos</div>
+                  <ul class="flinks ps-0">
+                     <li><a href="#hero"><i class="fas fa-chevron-right"></i>Inicio</a></li>
+                     <li><a href="#about"><i class="fas fa-chevron-right"></i>Sobre nosotros</a></li>
+                     <li><a href="#menu"><i class="fas fa-chevron-right"></i>Nuestro menú</a></li>
+                     <li><a href="#reservation"><i class="fas fa-chevron-right"></i>Reservacion</a></li>
+                     <li><a href="#blog"><i class="fas fa-chevron-right"></i>Blog</a></li>
+                     <li><a href="#contact-section"><i class="fas fa-chevron-right"></i>Contacto</a></li>
+                  </ul>
+               </div>
+               <div class="col-sm-6 col-lg-2">
+                  <div class="ftit">Nuestro menú</div>
+                  <ul class="flinks ps-0">
+                     <li><a href="#menu"><i class="fas fa-chevron-right"></i>Tortas</a></li>
+                     <li><a href="#menu"><i class="fas fa-chevron-right"></i>Infusiones & bebestibles</a></li>
+                     <li><a href="#menu"><i class="fas fa-chevron-right"></i>Sándwiches</a></li>
+                     <li><a href="#menu"><i class="fas fa-chevron-right"></i>Tartaletas</a></li>
+                     <li><a href="#menu"><i class="fas fa-chevron-right"></i>Postres</a></li>
+                     <li><a href="#menu"><i class="fas fa-chevron-right"></i>Jugos naturales</a></li>
+                  </ul>
+               </div>
+               <div class="col-lg-4">
+                  <div class="ftit">Contáctanos</div>
+                  <div class="fci">
+                     <div class="fciico"><i class="fas fa-map-marker-alt"></i></div>
+                     <div class="fciinfo"><strong>Dirección</strong>Av. Papita Dulce, Santiago, Chile</div>
+                  </div>
+                  <div class="fci">
+                     <div class="fciico"><i class="fas fa-phone-alt"></i></div>
+                     <div class="fciinfo"><strong>Teléfono</strong>+56 9 1234 5678</div>
+                  </div>
+                  <div class="fci">
+                     <div class="fciico"><i class="fas fa-envelope"></i></div>
+                     <div class="fciinfo"><strong>Correo electrónico</strong>papitadulce@gmail.com</div>
+                  </div>
+                  <div class="fci">
+                     <div class="fciico"><i class="fas fa-clock"></i></div>
+                     <div class="fciinfo"><strong>Horario</strong>Mar - Sab: 09 AM - 11 PM</div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="fbot">
+            <div class="container">
+               <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                  <p>&copy; 2026 <span>Papita Dulce</span>. Todos los derechos reservados. Hecho con <span><i class="fas fa-heart"></i></span></p>
+                  <div><a href="#">Política de privacidad</a><a href="#">Terminos</a><a href="#">Cookies</a></div>
+               </div>
+            </div>
+         </div>
+      </footer>
+      <!-- Floating cart -->
+      <!-- <div class="cartfl"><i class="fas fa-shopping-cart"></i><span>My Cart</span><div class="ccount" id="cartCount">0</div></div> -->
+      <!-- Back to top -->
+      <button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-chevron-up"></i></button>
+    
+	<!-- jQuery -->
+      <script src="js/jquery-3.7.1.min.js"></script>
+      <!-- Bootstrap 5 -->
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <!-- AOS -->
+      <script src="js/aos.js"></script>
+      <!-- Swiper -->
+      <script src="js/swiper-bundle.min.js"></script>
+      <!-- CounterUp -->
+      <script src="js/jquery.magnific-popup.min.js"></script>
+      <!-- Main js -->
+      <script src="js/main.js"></script>
+   </body>
+</html>

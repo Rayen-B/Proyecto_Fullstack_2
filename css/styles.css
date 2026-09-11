@@ -1,11 +1,11 @@
-/* =========================================================
+/* 
    ESTILOS - PROYECTO TIENDA PASTELERÍA PAPITA DULCE
    Paleta Oficial:
    - Fondo Cálido: #FFF6EF
    - Naranja (Primario): #FFA128
    - Chocolate (Secundario): #894530
    - Texto Carbón Oscuro: #42414A
-   ========================================================= */
+   */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
@@ -272,6 +272,21 @@ body {
 }
 
 /* Botones */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    line-height: 1.5;
+    vertical-align: middle;
+}
+
+.btn i, .btn .ti {
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+}
+
 .btn-pasteleria, .btn-primary {
     background-color: var(--color-primario) !important;
     border-color: var(--color-primario) !important;
@@ -319,7 +334,15 @@ body {
     color: #ffffff;
 }
 
-/* Tablas */
+.btn-pasteleria.btn-sm,
+.btn-outline-light.btn-sm,
+.btn-outline-pasteleria.btn-sm,
+.btn-sm {
+    padding: 7px 16px !important;
+    font-size: 0.875rem;
+    border-radius: 8px;
+}
+
 .table th {
     font-size: 12px;
     font-weight: 700;
@@ -340,57 +363,72 @@ body {
     color: var(--color-texto);
 }
 
+.table td.text-end,
+.table th.text-end {
+    white-space: nowrap;
+}
+
+.table .btn-sm {
+    padding: 6px 12px !important;
+    font-size: 0.8125rem;
+    margin: 2px;
+}
+
 .table tbody tr:hover {
     background-color: #fffbf8;
 }
 
-/* Badges */
+/* Badges y Etiquetas */
+.badge-soft-primary,
+.badge-soft-secondary,
+.badge-soft-success,
+.badge-soft-danger,
+.badge-soft-warning,
+.badge-soft-info {
+    display: inline-flex;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1;
+    padding: 4px 8px;
+    border-radius: 6px;
+    vertical-align: middle;
+
+}
+
 .badge-soft-primary {
     background-color: #fff2e0;
     color: #c97406;
-    font-weight: 600;
-    padding: 5px 10px;
-    border-radius: 6px;
 }
 
 .badge-soft-secondary {
     background-color: #f7ebe7;
     color: var(--color-secundario);
-    font-weight: 600;
-    padding: 5px 10px;
-    border-radius: 6px;
 }
 
 .badge-soft-success {
     background-color: #dcfce7;
     color: #15803d;
-    font-weight: 600;
-    padding: 5px 10px;
-    border-radius: 6px;
 }
 
 .badge-soft-danger {
     background-color: #fee2e2;
     color: #b91c1c;
-    font-weight: 600;
-    padding: 5px 10px;
-    border-radius: 6px;
 }
 
 .badge-soft-warning {
     background-color: #fef9c3;
     color: #a16207;
-    font-weight: 600;
-    padding: 5px 10px;
-    border-radius: 6px;
 }
 
 .badge-soft-info {
     background-color: #e0f2fe;
     color: #0369a1;
-    font-weight: 600;
-    padding: 5px 10px;
-    border-radius: 6px;
+}
+
+#usuario-nombre-actual {
+    line-height: 1.3;
+    margin-bottom: 5px;
 }
 
 /* Avatares y Miniaturas */
@@ -491,4 +529,238 @@ body {
     align-items: center;
     justify-content: center;
     border-radius: 8px;
+}
+
+.btn-outline-info,
+.btn-ver-orden,
+.btn-ver-producto,
+.btn-ver-usuario {
+    color: #0369a1 !important;
+    border-color: #0369a1 !important;
+    background-color: transparent !important;
+    font-weight: 500;
+}
+
+.btn-outline-info:hover,
+.btn-outline-info:focus,
+.btn-outline-info:active,
+.btn-ver-orden:hover,
+.btn-ver-producto:hover,
+.btn-ver-usuario:hover {
+    color: #ffffff !important;
+    background-color: #0369a1 !important;
+    border-color: #0369a1 !important;
+}
+
+/*
+   Bootstrap Mobile Cards
+    */
+@media (max-width: 768px) {
+    /* Espaciado de contenedor en pantallas móviles */
+    .content > .container-fluid {
+        padding: 1rem 0.75rem !important;
+    }
+
+    .topbar {
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+    }
+
+    .topbar h5 {
+        font-size: 0.95rem !important;
+    }
+
+    .input-buscar {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+
+    .card-header {
+        padding: 12px 14px !important;
+    }
+
+    /* Transformación de tablas a Mobile Cards */
+    .table-responsive {
+        overflow-x: visible !important;
+        border: none !important;
+    }
+
+    .table-responsive > .table {
+        display: block !important;
+        width: 100% !important;
+        border: none !important;
+        background: transparent !important;
+    }
+
+    .table-responsive > .table thead,
+    .table-responsive > .table thead tr,
+    .table-responsive > .table thead th {
+        display: none !important;
+    }
+
+    .table-responsive > .table tbody {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0.9rem !important;
+        padding: 0.25rem 0 !important;
+        width: 100% !important;
+    }
+
+    .table-responsive > .table tbody tr {
+        display: block !important;
+        width: 100% !important;
+        background: #ffffff !important;
+        border: 1px solid var(--color-borde) !important;
+        border-radius: 14px !important;
+        padding: 0.9rem 1rem !important;
+        box-shadow: 0 2px 8px rgba(66, 65, 74, 0.05) !important;
+        margin-bottom: 0 !important;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .table-responsive > .table tbody tr:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 14px rgba(255, 161, 40, 0.12) !important;
+        border-color: var(--color-primario) !important;
+    }
+
+    /* Filas ocultadas por filtros o búsqueda */
+    .table-responsive > .table tbody tr.d-none,
+    .table-responsive > .table tbody tr[style*="display: none"],
+    .table-responsive > .table tbody tr[style*="display:none"] {
+        display: none !important;
+    }
+
+    .table-responsive > .table tbody tr td {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: flex-start !important;
+        width: 100% !important;
+        padding: 0.5rem 0 !important;
+        border: none !important;
+        border-bottom: 1px dashed #f2e3d8 !important;
+        font-size: 0.88rem !important;
+        text-align: right !important;
+        background: transparent !important;
+        gap: 0.75rem !important;
+    }
+
+    /* Contenedor derecho para datos de múltiples líneas (Nombre + descripción, Cliente + correo) */
+    .table-responsive > .table tbody tr td > div:not(.d-inline-flex) {
+        display: flex !important;
+        flex-direction: column !important;
+        text-align: right !important;
+        align-items: flex-end !important;
+        max-width: 68% !important;
+        word-break: break-word !important;
+    }
+
+    .table-responsive > .table tbody tr td > div:not(.d-inline-flex) small {
+        margin-top: 3px !important;
+        line-height: 1.35 !important;
+        color: var(--color-muted) !important;
+        font-size: 0.78rem !important;
+        display: block !important;
+    }
+
+    /* Etiqueta automática en negrita a la izquierda */
+    .table-responsive > .table tbody tr td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: var(--color-muted);
+        font-size: 0.82rem;
+        text-align: left;
+        padding-right: 0.5rem;
+        flex-shrink: 0;
+        padding-top: 2px;
+    }
+
+    /* Primer campo (Código / RUN / Fecha) destacado como encabezado de tarjeta */
+    .table-responsive > .table tbody tr td:first-child {
+        padding-top: 0 !important;
+        padding-bottom: 0.55rem !important;
+        font-size: 0.95rem !important;
+        border-bottom: 1px solid var(--color-borde) !important;
+        font-weight: 700 !important;
+        align-items: center !important;
+    }
+
+    .table-responsive > .table tbody tr td:first-child::before {
+        color: var(--color-secundario);
+    }
+
+    /* Filas de Acciones o Detalle (botones) */
+    .table-responsive > .table tbody tr td[data-label="Acciones"],
+    .table-responsive > .table tbody tr td[data-label="Detalle"],
+    .table-responsive > .table tbody tr td.text-end {
+        border-bottom: none !important;
+        padding-top: 0.75rem !important;
+        padding-bottom: 0 !important;
+        justify-content: flex-end !important;
+    }
+
+    .table-responsive > .table tbody tr td[data-label="Acciones"]::before,
+    .table-responsive > .table tbody tr td[data-label="Detalle"]::before,
+    .table-responsive > .table tbody tr td.text-end::before {
+        display: none !important;
+    }
+
+    .table-responsive > .table tbody tr td[data-label="Acciones"] .d-inline-flex,
+    .table-responsive > .table tbody tr td[data-label="Detalle"] .d-inline-flex,
+    .table-responsive > .table tbody tr td.text-end .d-inline-flex {
+        width: 100% !important;
+        justify-content: flex-end !important;
+        gap: 0.4rem !important;
+    }
+
+    .table-responsive > .table tbody tr td[data-label="Acciones"] .btn,
+    .table-responsive > .table tbody tr td[data-label="Detalle"] .btn,
+    .table-responsive > .table tbody tr td.text-end .btn {
+        flex: 1 1 auto;
+        padding: 0.38rem 0.6rem !important;
+        font-size: 0.82rem !important;
+    }
+
+    /* Casos especiales: fila vacía o mensaje de "sin resultados" */
+    .table-responsive > .table tbody tr.fila-sin-resultados,
+    .table-responsive > .table tbody tr td[colspan] {
+        display: block !important;
+        text-align: center !important;
+    }
+
+    .table-responsive > .table tbody tr.fila-sin-resultados td,
+    .table-responsive > .table tbody tr td[colspan] {
+        display: block !important;
+        text-align: center !important;
+        border: none !important;
+        padding: 1.5rem !important;
+    }
+
+    .table-responsive > .table tbody tr.fila-sin-resultados td::before,
+    .table-responsive > .table tbody tr td[colspan]::before {
+        display: none !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .topbar {
+        height: 58px !important;
+    }
+    .content {
+        padding-top: 58px !important;
+    }
+    .topbar h5 {
+        font-size: 0.88rem !important;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 140px;
+    }
+    .topbar .btn-sm {
+        padding: 0.28rem 0.5rem !important;
+        font-size: 0.78rem !important;
+    }
+    .card-body.p-4 {
+        padding: 1.15rem !important;
+    }
 }

@@ -1,0 +1,8 @@
+﻿# Plantilla base y documentacion externa
+Documentation/
+src/
+
+# Archivos del sistema y logs
+.DS_Store
+Thumbs.db
+*.log
