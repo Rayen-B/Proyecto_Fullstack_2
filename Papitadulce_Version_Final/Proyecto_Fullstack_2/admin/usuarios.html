@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador - Gestión de Usuarios | Pastelería Papita Dulce</title>
+    
+    <!-- Bootstrap 5 CSS & Tabler Icons (Local) -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/tabler-icons.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../assets/images/favicon_io/Logo_Papita_Dulce_recorte.png">
+    
+    <!-- Estilos del Proyecto -->
+    <link rel="stylesheet" href="../css/styles.css?v=7">
+</head>
+<body>
+
+    <div id="overlay" class="overlay"></div>
+
+    <!-- 
+         BARRA LATERAL (SIDEBAR)
+          -->
+    <aside id="sidebar" class="sidebar">
+        <div class="logo-area">
+            <div class="sidebar-logo-container">
+                <img src="../assets/images/favicon_io/Logo_Papita_Dulce.png" alt="Logo" class="sidebar-logo-img">
+            </div>
+            <span class="logo-text fw-bold fs-5 ms-2">Papita Dulce</span>
+        </div>
+
+        <div class="nav-section-title">Navegación</div>
+        <ul class="list-unstyled mb-0">
+            <li>
+                <a href="index.html" class="nav-link">
+                    <i class="ti ti-dashboard"></i>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="ordenes.html" class="nav-link">
+                    <i class="ti ti-receipt"></i>
+                    <span class="nav-text">Órdenes</span>
+                </a>
+            </li>
+            <li>
+                <a href="productos.html" class="nav-link">
+                    <i class="ti ti-box"></i>
+                    <span class="nav-text">Inventario</span>
+                </a>
+            </li>
+            <li class="solo-admin">
+                <a href="usuarios.html" class="nav-link active">
+                    <i class="ti ti-users"></i>
+                    <span class="nav-text">Usuarios</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="nav-section-title solo-admin">Gestión</div>
+        <ul class="list-unstyled mb-3 solo-admin">
+            <li>
+                <a href="producto-form.html" class="nav-link">
+                    <i class="ti ti-circle-plus"></i>
+                    <span class="nav-text">Nuevo Producto</span>
+                </a>
+            </li>
+            <li>
+                <a href="usuario-form.html" class="nav-link">
+                    <i class="ti ti-user-plus"></i>
+                    <span class="nav-text">Nuevo Usuario</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="sidebar-footer mt-auto">
+            <div class="d-flex align-items-center mb-3">
+                <img src="../assets/images/avatar/ryan.png" alt="Avatar" class="avatar me-2">
+                <div class="overflow-hidden">
+                    <div id="usuario-nombre-actual" class="fw-semibold text-truncate small">Alan Brito</div>
+                    <span id="usuario-rol-actual" class="badge-soft-secondary">Administrador</span>
+                </div>
+            </div>
+            <div class="d-grid gap-2">
+                <a href="../papitadulce/index.html" class="btn btn-outline-pasteleria btn-sm"><i class="ti ti-building-store me-1"></i> Ir a la Tienda</a>
+                <a href="../login.html" class="btn btn-outline-danger btn-sm" data-action="cerrar-sesion"><i class="ti ti-logout me-1"></i> Cerrar Sesión</a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- 
+         BARRA SUPERIOR (TOPBAR)
+          -->
+    <header id="topbar" class="topbar fixed-top d-flex align-items-center justify-content-between px-3 px-lg-4">
+        <div class="d-flex align-items-center gap-2">
+            <button id="toggleBtn" class="btn btn-light btn-icon d-none d-lg-inline-flex">
+                <i class="ti ti-layout-sidebar-left-collapse"></i>
+            </button>
+            <button id="mobileBtn" class="btn btn-light btn-icon d-lg-none">
+                <i class="ti ti-menu-2"></i>
+            </button>
+            <h5 class="mb-0 fw-semibold text-principal">Gestión de Usuarios y Roles</h5>
+        </div>
+
+        <div class="d-flex align-items-center gap-2">
+            <a href="usuario-form.html" class="btn btn-pasteleria btn-sm">
+                <i class="ti ti-user-plus me-1"></i> NUEVO USUARIO
+            </a>
+        </div>
+    </header>
+
+    <!-- 
+         CONTENIDO PRINCIPAL
+          -->
+    <main id="content" class="content">
+        <div class="container-fluid p-4">
+
+            <!-- Banner Informativo -->
+            <div class="alert alert-roles d-flex align-items-center mb-4 border-0 shadow-sm" role="alert">
+                <div class="small">
+                    <b>Roles:</b> 
+                    <span class="badge bg-secondary ms-1">Administrador: Acceso total</span>
+                    <span class="badge bg-success ms-1">Vendedor: Solo Productos y Órdenes</span>
+                    <span class="badge bg-light text-dark border ms-1">Cliente: Solo Tienda</span>
+                </div>
+            </div>
+
+            <!-- Tabla de Usuarios -->
+            <div class="card shadow-sm">
+                <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center flex-wrap gap-2">
+                    <h6 class="mb-0 fw-bold text-principal"><i class="ti ti-users me-1"></i> Listado de Usuarios Registrados</h6>
+                    <input type="text" id="buscador-usuarios" class="form-control form-control-sm input-buscar" placeholder="Buscar por RUN, nombre o correo...">
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead>
+                            <tr>
+                                <th>RUN</th>
+                                <th>Usuario / Nombre Completo</th>
+                                <th>Correo Electrónico</th>
+                                <th>Rol / Perfil</th>
+                                <th>Región / Comuna</th>
+                                <th class="text-end">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla-usuarios-body">
+                            <tr>
+                                <td class="fw-bold font-monospace">19011022K</td>
+                                <td>
+                                    <div>
+                                        <div class="fw-semibold">Alan Brito Delgado</div>
+                                        <small class="text-muted">Av. España 123</small>
+                                    </div>
+                                </td>
+                                <td><a href="mailto:alan.brito@duoc.cl" class="text-decoration-none text-secundario">alan.brito@duoc.cl</a></td>
+                                <td><span class="badge-soft-secondary"><i class="ti ti-user me-1"></i> Administrador</span></td>
+                                <td>Santiago</td>
+                                <td class="text-end">
+                                    <div class="d-inline-flex gap-2">
+                                        <button type="button" class="btn btn-outline-info btn-sm btn-ver-usuario" data-bs-toggle="modal" data-bs-target="#modalMostrarUsuario" data-run="19011022K"><i class="ti ti-eye"></i> Ver</button>
+                                        <a href="usuario-form.html?run=19011022K" class="btn btn-outline-pasteleria btn-sm"><i class="ti ti-edit"></i> Editar</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold font-monospace">184561234</td>
+                                <td>
+                                    <div>
+                                        <div class="fw-semibold">Lola Mento Rojas</div>
+                                        <small class="text-muted">Av. Providencia 456</small>
+                                    </div>
+                                </td>
+                                <td><a href="mailto:lola.mento@profesor.duoc.cl" class="text-decoration-none text-secundario">lola.mento@profesor.duoc.cl</a></td>
+                                <td><span class="badge-soft-primary"><i class="ti ti-user me-1"></i> Vendedor</span></td>
+                                <td>Providencia</td>
+                                <td class="text-end">
+                                    <div class="d-inline-flex gap-2">
+                                        <button type="button" class="btn btn-outline-info btn-sm btn-ver-usuario" data-bs-toggle="modal" data-bs-target="#modalMostrarUsuario" data-run="184561234"><i class="ti ti-eye"></i> Ver</button>
+                                        <a href="usuario-form.html?run=184561234" class="btn btn-outline-pasteleria btn-sm"><i class="ti ti-edit"></i> Editar</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold font-monospace">201239875</td>
+                                <td>
+                                    <div>
+                                        <div class="fw-semibold">Armando Esteban Quito</div>
+                                        <small class="text-muted">Calle Prat 789</small>
+                                    </div>
+                                </td>
+                                <td><a href="mailto:armando.quito@gmail.com" class="text-decoration-none text-secundario">armando.quito@gmail.com</a></td>
+                                <td><span class="badge-soft-info"><i class="ti ti-user me-1"></i> Cliente</span></td>
+                                <td>Concepción</td>
+                                <td class="text-end">
+                                    <div class="d-inline-flex gap-2">
+                                        <button type="button" class="btn btn-outline-info btn-sm btn-ver-usuario" data-bs-toggle="modal" data-bs-target="#modalMostrarUsuario" data-run="201239875"><i class="ti ti-eye"></i> Ver</button>
+                                        <a href="usuario-form.html?run=201239875" class="btn btn-outline-pasteleria btn-sm"><i class="ti ti-edit"></i> Editar</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card-footer bg-white d-flex justify-content-between align-items-center py-3">
+                    <small id="conteo-usuarios" class="text-muted">Mostrando 3 usuarios registrados</small>
+                    <nav>
+                        <ul class="pagination pagination-sm mb-0">
+                            <li class="page-item disabled"><a class="page-link" href="#">«</a></li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">»</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Modal Mostrar Usuario -->
+    <div class="modal fade" id="modalMostrarUsuario" tabindex="-1" aria-labelledby="modalMostrarUsuarioLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow">
+                <div class="modal-header bg-white border-bottom">
+                    <h5 class="modal-title fw-bold text-principal" id="modalMostrarUsuarioLabel">
+                        <i class="ti ti-user me-1 text-secundario"></i> Ficha de Usuario
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="mb-3">
+                        <h5 id="modal-usr-nombre" class="fw-bold text-principal mb-1"></h5>
+                        <span id="modal-usr-rol" class="badge-soft-secondary"></span>
+                    </div>
+                    
+                    <div class="list-group list-group-flush border-top border-bottom mb-3 small">
+                        <div class="list-group-item d-flex justify-content-between px-0 py-2">
+                            <span class="text-muted"><i class="ti ti-id me-1"></i> RUN</span>
+                            <span id="modal-usr-run" class="fw-bold font-monospace"></span>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between px-0 py-2">
+                            <span class="text-muted"><i class="ti ti-mail me-1"></i> Correo</span>
+                            <span id="modal-usr-correo" class="fw-semibold"></span>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between px-0 py-2">
+                            <span class="text-muted"><i class="ti ti-calendar me-1"></i> Fecha de Nacimiento</span>
+                            <span id="modal-usr-fecha" class="text-muted"></span>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between px-0 py-2">
+                            <span class="text-muted"><i class="ti ti-map-pin me-1"></i> Ubicación</span>
+                            <span id="modal-usr-ubicacion" class="fw-semibold"></span>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between px-0 py-2">
+                            <span class="text-muted"><i class="ti ti-home me-1"></i> Dirección</span>
+                            <span id="modal-usr-direccion" class="text-muted"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer bg-light border-0 py-2">
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cerrar</button>
+                    <a id="modal-usr-btn-editar" href="#" class="btn btn-pasteleria btn-sm solo-admin">
+                        <i class="ti ti-edit me-1"></i> Ir a Editar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Confirmar Eliminación -->
+    <div class="modal fade" id="modalConfirmarEliminar" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content border-0 shadow">
+                <div class="modal-body text-center p-4">
+                    <div class="text-danger mb-3">
+                        <i class="ti ti-trash-x" style="font-size: 3rem;"></i>
+                    </div>
+                    <h5 class="fw-bold text-principal mb-2" id="modal-eliminar-titulo">¿Eliminar usuario?</h5>
+                    <p class="text-muted small mb-4" id="modal-eliminar-mensaje">¿Estás seguro de que deseas eliminar este usuario? Esta acción no se puede deshacer.</p>
+                    <div class="d-flex justify-content-center gap-2">
+                        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-danger btn-sm" id="btn-confirmar-eliminar-definitivo">
+                            <i class="ti ti-trash me-1"></i> Eliminar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../javascript/bootstrap.bundle.min.js"></script>
+    <script src="../javascript/regiones.js"></script>
+    <script src="../javascript/auth.js"></script>
+    <script src="../javascript/usuarios.js"></script>
+    <script src="../javascript/admin.js"></script>
+</body>
+</html>

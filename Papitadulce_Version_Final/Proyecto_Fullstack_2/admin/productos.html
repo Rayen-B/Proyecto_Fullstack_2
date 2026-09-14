@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador - Inventario de Productos | Pastelería Papita Dulce</title>
+    
+    <!-- Bootstrap 5 CSS & Tabler Icons (Local) -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/tabler-icons.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../assets/images/favicon_io/Logo_Papita_Dulce_recorte.png">
+    
+    <!-- Estilos del Proyecto -->
+    <link rel="stylesheet" href="../css/styles.css?v=7">
+</head>
+<body>
+
+    <div id="overlay" class="overlay"></div>
+
+    <!-- 
+         BARRA LATERAL (SIDEBAR)
+          -->
+    <aside id="sidebar" class="sidebar">
+        <div class="logo-area">
+            <div class="sidebar-logo-container">
+                <img src="../assets/images/favicon_io/Logo_Papita_Dulce.png" alt="Logo" class="sidebar-logo-img">
+            </div>
+            <span class="logo-text fw-bold fs-5 ms-2">Papita Dulce</span>
+        </div>
+
+        <div class="nav-section-title">Navegación</div>
+        <ul class="list-unstyled mb-0">
+            <li>
+                <a href="index.html" class="nav-link">
+                    <i class="ti ti-dashboard"></i>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="ordenes.html" class="nav-link">
+                    <i class="ti ti-receipt"></i>
+                    <span class="nav-text">Órdenes</span>
+                </a>
+            </li>
+            <li>
+                <a href="productos.html" class="nav-link active">
+                    <i class="ti ti-box"></i>
+                    <span class="nav-text">Inventario</span>
+                </a>
+            </li>
+            <li class="solo-admin">
+                <a href="usuarios.html" class="nav-link">
+                    <i class="ti ti-users"></i>
+                    <span class="nav-text">Usuarios</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="nav-section-title solo-admin">Gestión</div>
+        <ul class="list-unstyled mb-3 solo-admin">
+            <li>
+                <a href="producto-form.html" class="nav-link">
+                    <i class="ti ti-circle-plus"></i>
+                    <span class="nav-text">Nuevo Producto</span>
+                </a>
+            </li>
+            <li>
+                <a href="usuario-form.html" class="nav-link">
+                    <i class="ti ti-user-plus"></i>
+                    <span class="nav-text">Nuevo Usuario</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="sidebar-footer mt-auto">
+            <div class="d-flex align-items-center mb-3">
+                <img src="../assets/images/avatar/ryan.png" alt="Avatar" class="avatar me-2">
+                <div class="overflow-hidden">
+                    <div id="usuario-nombre-actual" class="fw-semibold text-truncate small">Alan Brito</div>
+                    <span id="usuario-rol-actual" class="badge-soft-secondary">Administrador</span>
+                </div>
+            </div>
+            <div class="d-grid gap-2">
+                <a href="../papitadulce/index.html" class="btn btn-outline-pasteleria btn-sm"><i class="ti ti-building-store me-1"></i> Ir a la Tienda</a>
+                <a href="../login.html" class="btn btn-outline-danger btn-sm" data-action="cerrar-sesion"><i class="ti ti-logout me-1"></i> Cerrar Sesión</a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- 
+         BARRA SUPERIOR (TOPBAR)
+        -->
+    <header id="topbar" class="topbar fixed-top d-flex align-items-center justify-content-between px-3 px-lg-4">
+        <div class="d-flex align-items-center gap-2">
+            <button id="toggleBtn" class="btn btn-light btn-icon d-none d-lg-inline-flex">
+                <i class="ti ti-layout-sidebar-left-collapse"></i>
+            </button>
+            <button id="mobileBtn" class="btn btn-light btn-icon d-lg-none">
+                <i class="ti ti-menu-2"></i>
+            </button>
+            <h5 class="mb-0 fw-semibold text-principal">Inventario de Productos</h5>
+        </div>
+
+        <div class="d-flex align-items-center gap-2">
+            <a href="producto-form.html" class="btn btn-pasteleria btn-sm solo-admin">
+                <i class="ti ti-plus me-1"></i> NUEVO PRODUCTO
+            </a>
+        </div>
+    </header>
+
+    <!-- 
+         CONTENIDO PRINCIPAL
+          -->
+    <main id="content" class="content">
+        <div class="container-fluid p-4">
+
+            <!-- Tabla de Inventario de Productos -->
+            <div class="card shadow-sm">
+                <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center flex-wrap gap-2">
+                    <h6 class="mb-0 fw-bold text-principal"><i class="ti ti-box me-1"></i> Listado de Productos</h6>
+                    <div class="d-flex gap-2">
+                        <input type="text" id="buscador-productos" class="form-control form-control-sm input-buscar" placeholder="Buscar por código, nombre o categoría...">
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Imagen</th>
+                                <th>Nombre</th>
+                                <th>Categoría</th>
+                                <th>Precio</th>
+                                <th>Stock</th>
+                                <th>Stock Crítico / Alerta</th>
+                                <th class="text-end">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla-productos-body">
+                            <tr>
+                                <td class="fw-bold font-monospace">TC001</td>
+                                <td><img src="../assets/images/Torta_Selva_Negra.webp" alt="Torta Selva Negra" class="avatar-producto"></td>
+                                <td>
+                                    <div class="fw-bold">Torta Selva Negra</div>
+                                    <small class="text-muted">Torta de bizcocho de chocolate rellena con crema, cerezas, y dulce de guinda.</small>
+                                </td>
+                                <td><span class="badge-soft-primary">Tortas</span></td>
+                                <td class="fw-bold">$45.000</td>
+                                <td><span class="fw-bold">12</span></td>
+                                <td><span class="badge-soft-success">Normal</span></td>
+                                <td class="text-end">
+                                    <div class="d-inline-flex gap-2">
+                                        <button type="button" class="btn btn-outline-info btn-sm btn-ver-producto" data-codigo="TC001"><i class="ti ti-eye"></i> Ver</button>
+                                        <a href="producto-form.html?codigo=TC001" class="btn btn-outline-pasteleria btn-sm solo-admin"><i class="ti ti-edit"></i> Editar</a>
+                                        <button type="button" class="btn btn-outline-danger btn-sm btn-eliminar-producto solo-admin" data-codigo="TC001"><i class="ti ti-trash"></i> Eliminar</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold font-monospace">TM002</td>
+                                <td><img src="../assets/images/Torta_Panqueque_Naranja.jpg" alt="" class="avatar-producto"></td>
+                                <td>
+                                    <div class="fw-bold">Torta Panqueque de naranja</div>
+                                    <small class="text-muted">Deliciosa torta de panqueque con sabor a naranja.</small>
+                                </td>
+                                <td><span class="badge-soft-primary">Tortas</span></td>
+                                <td class="fw-bold">$38.000</td>
+                                <td><span class="fw-bold">8</span></td>
+                                <td><span class="badge-soft-success">Normal</span></td>
+                                <td class="text-end">
+                                    <div class="d-inline-flex gap-2">
+                                        <button type="button" class="btn btn-outline-info btn-sm btn-ver-producto" data-codigo="TM002"><i class="ti ti-eye"></i> Ver</button>
+                                        <a href="producto-form.html?codigo=TM002" class="btn btn-outline-pasteleria btn-sm solo-admin"><i class="ti ti-edit"></i> Editar</a>
+                                        <button type="button" class="btn btn-outline-danger btn-sm btn-eliminar-producto solo-admin" data-codigo="TM002"><i class="ti ti-trash"></i> Eliminar</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold font-monospace">TT003</td>
+                                <td><img src="../assets/images/Torta_Tres_Leches.webp" alt="" class="avatar-producto"></td>
+                                <td>
+                                    <div class="fw-bold">Torta Tres Leches</div>
+                                    <small class="text-muted">Bizcochuelo esponjoso remojado en infusión de tres leches.</small>
+                                </td>
+                                <td><span class="badge-soft-primary">Tortas</span></td>
+                                <td class="fw-bold">$36.000</td>
+                                <td><span class="fw-bold">15</span></td>
+                                <td><span class="badge-soft-success">Normal</span></td>
+                                <td class="text-end">
+                                    <div class="d-inline-flex gap-2">
+                                        <button type="button" class="btn btn-outline-info btn-sm btn-ver-producto" data-codigo="TT003"><i class="ti ti-eye"></i> Ver</button>
+                                        <a href="producto-form.html?codigo=TT003" class="btn btn-outline-pasteleria btn-sm solo-admin"><i class="ti ti-edit"></i> Editar</a>
+                                        <button type="button" class="btn btn-outline-danger btn-sm btn-eliminar-producto solo-admin" data-codigo="TT003"><i class="ti ti-trash"></i> Eliminar</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold font-monospace">TL004</td>
+                                <td><img src="../assets/images/Torta_Trufa.jpeg" alt="" class="avatar-producto"></td>
+                                <td>
+                                    <div class="fw-bold">Torta de Trufa</div>
+                                    <small class="text-muted">Deliciosa torta de trufa.</small>
+                                </td>
+                                <td><span class="badge-soft-primary">Tortas</span></td>
+                                <td class="fw-bold">$42.000</td>
+                                <td><span class="fw-bold text-danger">2</span></td>
+                                <td><span class="badge-soft-danger"><i class="ti ti-alert-triangle me-1"></i> Crítico (Min: 4)</span></td>
+                                <td class="text-end">
+                                    <div class="d-inline-flex gap-2">
+                                        <button type="button" class="btn btn-outline-info btn-sm btn-ver-producto" data-codigo="TL004"><i class="ti ti-eye"></i> Ver</button>
+                                        <a href="producto-form.html?codigo=TL004" class="btn btn-outline-pasteleria btn-sm solo-admin"><i class="ti ti-edit"></i> Editar</a>
+                                        <button type="button" class="btn btn-outline-danger btn-sm btn-eliminar-producto solo-admin" data-codigo="TL004"><i class="ti ti-trash"></i> Eliminar</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold font-monospace">TF005</td>
+                                <td><img src="../assets/images/Empolvados.jpeg" alt="" class="avatar-producto"></td>
+                                <td>
+                                    <div class="fw-bold">Empolvados</div>
+                                    <small class="text-muted">Delicados bizcochos rellenos con manjar y espolvoreados con azúcar flor.</small>
+                                </td>
+                                <td><span class="badge-soft-primary">Pastelería Chilena</span></td>
+                                <td class="fw-bold">$25.000</td>
+                                <td><span class="fw-bold">6</span></td>
+                                <td><span class="badge-soft-success">Normal</span></td>
+                                <td class="text-end">
+                                    <div class="d-inline-flex gap-2">
+                                        <button type="button" class="btn btn-outline-info btn-sm btn-ver-producto" data-codigo="TF005"><i class="ti ti-eye"></i> Ver</button>
+                                        <a href="producto-form.html?codigo=TF005" class="btn btn-outline-pasteleria btn-sm solo-admin"><i class="ti ti-edit"></i> Editar</a>
+                                        <button type="button" class="btn btn-outline-danger btn-sm btn-eliminar-producto solo-admin" data-codigo="TF005"><i class="ti ti-trash"></i> Eliminar</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold font-monospace">PI006</td>
+                                <td><img src="../assets/images/Arroz_con_Leche.webp" alt="" class="avatar-producto"></td>
+                                <td>
+                                    <div class="fw-bold">Arroz con Leche</div>
+                                    <small class="text-muted">Postre a base de arroz, leche, azúcar y canela.</small>
+                                </td>
+                                <td><span class="badge-soft-primary">Postres</span></td>
+                                <td class="fw-bold">$5.000</td>
+                                <td><span class="fw-bold text-danger">1</span></td>
+                                <td><span class="badge-soft-danger"><i class="ti ti-alert-triangle me-1"></i> Crítico (Min: 5)</span></td>
+                                <td class="text-end">
+                                    <div class="d-inline-flex gap-2">
+                                        <button type="button" class="btn btn-outline-info btn-sm btn-ver-producto" data-codigo="PI006"><i class="ti ti-eye"></i> Ver</button>
+                                        <a href="producto-form.html?codigo=PI006" class="btn btn-outline-pasteleria btn-sm solo-admin"><i class="ti ti-edit"></i> Editar</a>
+                                        <button type="button" class="btn btn-outline-danger btn-sm btn-eliminar-producto solo-admin" data-codigo="PI006"><i class="ti ti-trash"></i> Eliminar</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card-footer bg-white d-flex justify-content-between align-items-center py-3">
+                    <small id="conteo-productos" class="text-muted">Mostrando 6 productos registrados</small>
+                    <nav>
+                        <ul class="pagination pagination-sm mb-0">
+                            <li class="page-item disabled"><a class="page-link" href="#">«</a></li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">»</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Modal Mostrar Producto -->
+    <div class="modal fade" id="modalMostrarProducto" tabindex="-1" aria-labelledby="modalMostrarProductoLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow">
+                <div class="modal-header bg-white border-bottom">
+                    <h5 class="modal-title fw-bold text-principal" id="modalMostrarProductoLabel">
+                        <i class="ti ti-box me-1 text-secundario"></i> Detalle del Producto
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="text-center mb-3">
+                        <img id="modal-prod-img" src="" alt="" class="rounded shadow-sm" style="max-height: 180px; width: auto; object-fit: cover;">
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span id="modal-prod-codigo" class="badge bg-light text-dark font-monospace border"></span>
+                        <span id="modal-prod-categoria" class="badge-soft-primary"></span>
+                    </div>
+                    <h4 id="modal-prod-nombre" class="fw-bold text-principal mb-2"></h4>
+                    <p id="modal-prod-desc" class="text-muted small mb-3"></p>
+                    
+                    <div class="p-3 bg-light rounded-3 mb-3">
+                        <div class="row g-2 text-center">
+                            <div class="col-4">
+                                <small class="text-muted d-block">Precio</small>
+                                <span id="modal-prod-precio" class="fw-bold text-principal fs-5"></span>
+                            </div>
+                            <div class="col-4 border-start border-end">
+                                <small class="text-muted d-block">Stock</small>
+                                <span id="modal-prod-stock" class="fw-bold fs-5"></span>
+                            </div>
+                            <div class="col-4">
+                                <small class="text-muted d-block">Stock Crítico</small>
+                                <span id="modal-prod-critico" class="fw-bold text-muted fs-5"></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="modal-prod-alerta" class="alert py-2 px-3 mb-0 small"></div>
+                </div>
+                <div class="modal-footer bg-light border-0 py-2">
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cerrar</button>
+                    <a id="modal-prod-btn-editar" href="#" class="btn btn-pasteleria btn-sm solo-admin">
+                        <i class="ti ti-edit me-1"></i> Ir a Editar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Confirmar Eliminación -->
+    <div class="modal fade" id="modalConfirmarEliminar" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content border-0 shadow">
+                <div class="modal-body text-center p-4">
+                    <div class="text-danger mb-3">
+                        <i class="ti ti-trash-x" style="font-size: 3rem;"></i>
+                    </div>
+                    <h5 class="fw-bold text-principal mb-2" id="modal-eliminar-titulo">¿Eliminar producto?</h5>
+                    <p class="text-muted small mb-4" id="modal-eliminar-mensaje">¿Estás seguro de que deseas eliminar este producto? Esta acción no se puede deshacer.</p>
+                    <div class="d-flex justify-content-center gap-2">
+                        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-danger btn-sm" id="btn-confirmar-eliminar-definitivo">
+                            <i class="ti ti-trash me-1"></i> Eliminar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../javascript/bootstrap.bundle.min.js"></script>
+    <script src="../javascript/auth.js"></script>
+    <script src="../javascript/validaciones.js"></script>
+    <script src="../javascript/productos.js"></script>
+    <script src="../javascript/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador - Órdenes | Pastelería Papita Dulce</title>
+    
+    <!-- Bootstrap 5 CSS & Tabler Icons (Local) -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/tabler-icons.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../assets/images/favicon_io/Logo_Papita_Dulce_recorte.png">
+    
+    <!-- Estilos del Proyecto -->
+    <link rel="stylesheet" href="../css/styles.css?v=7">
+</head>
+<body>
+
+    <div id="overlay" class="overlay"></div>
+
+    <!-- 
+         BARRA LATERAL (SIDEBAR)
+          -->
+    <aside id="sidebar" class="sidebar">
+        <div class="logo-area">
+            <div class="sidebar-logo-container">
+                <img src="../assets/images/favicon_io/Logo_Papita_Dulce.png" alt="Logo" class="sidebar-logo-img">
+            </div>
+            <span class="logo-text fw-bold fs-5 ms-2">Papita Dulce</span>
+        </div>
+
+        <div class="nav-section-title">Navegación</div>
+        <ul class="list-unstyled mb-0">
+            <li>
+                <a href="index.html" class="nav-link">
+                    <i class="ti ti-dashboard"></i>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="ordenes.html" class="nav-link active">
+                    <i class="ti ti-receipt"></i>
+                    <span class="nav-text">Órdenes</span>
+                </a>
+            </li>
+            <li>
+                <a href="productos.html" class="nav-link">
+                    <i class="ti ti-box"></i>
+                    <span class="nav-text">Inventario</span>
+                </a>
+            </li>
+            <li class="solo-admin">
+                <a href="usuarios.html" class="nav-link">
+                    <i class="ti ti-users"></i>
+                    <span class="nav-text">Usuarios</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="nav-section-title solo-admin">Gestión</div>
+        <ul class="list-unstyled mb-3 solo-admin">
+            <li>
+                <a href="producto-form.html" class="nav-link">
+                    <i class="ti ti-circle-plus"></i>
+                    <span class="nav-text">Nuevo Producto</span>
+                </a>
+            </li>
+            <li>
+                <a href="usuario-form.html" class="nav-link">
+                    <i class="ti ti-user-plus"></i>
+                    <span class="nav-text">Nuevo Usuario</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="sidebar-footer mt-auto">
+            <div class="d-flex align-items-center mb-3">
+                <img src="../assets/images/avatar/ryan.png" alt="Avatar" class="avatar me-2">
+                <div class="overflow-hidden">
+                    <div id="usuario-nombre-actual" class="fw-semibold text-truncate small">Alan Brito</div>
+                    <span id="usuario-rol-actual" class="badge-soft-secondary">Administrador</span>
+                </div>
+            </div>
+            <div class="d-grid gap-2">
+                <a href="../papitadulce/index.html" class="btn btn-outline-pasteleria btn-sm"><i class="ti ti-building-store me-1"></i> Ir a la Tienda</a>
+                <a href="../login.html" class="btn btn-outline-danger btn-sm" data-action="cerrar-sesion"><i class="ti ti-logout me-1"></i> Cerrar Sesión</a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- 
+         BARRA SUPERIOR (TOPBAR)
+          -->
+    <header id="topbar" class="topbar fixed-top d-flex align-items-center justify-content-between px-3 px-lg-4">
+        <div class="d-flex align-items-center gap-2">
+            <button id="toggleBtn" class="btn btn-light btn-icon d-none d-lg-inline-flex">
+                <i class="ti ti-layout-sidebar-left-collapse"></i>
+            </button>
+            <button id="mobileBtn" class="btn btn-light btn-icon d-lg-none">
+                <i class="ti ti-menu-2"></i>
+            </button>
+            <h5 class="mb-0 fw-semibold text-principal">Órdenes de Compra</h5>
+        </div>
+
+        <div class="d-flex align-items-center gap-2">
+            <button class="btn btn-outline-secondary btn-sm" onclick="window.print()">  <!-- Imprimir reportes funcional -->
+                <i class="ti ti-printer me-1"></i> Imprimir Reporte
+            </button>
+        </div>
+    </header>
+
+    <!--
+         CONTENIDO PRINCIPAL
+         -->
+    <main id="content" class="content">
+        <div class="container-fluid p-4">
+
+            <!-- Tabla de Órdenes -->
+            <div class="card shadow-sm">
+                <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center flex-wrap gap-2">
+                    <h6 class="mb-0 fw-bold text-principal"><i class="ti ti-file-invoice me-1"></i> Historial de Órdenes</h6>
+                    <div class="d-flex gap-2">
+                        <input type="text" id="buscador-ordenes" class="form-control form-control-sm input-buscar" placeholder="Buscar orden o cliente...">
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>N° de Orden</th>
+                                <th>Cliente</th>
+                                <th>Estado</th>
+                                <th>Monto Total</th>
+                                <th class="text-end">Detalle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2026-06-01</td>
+                                <td class="fw-bold font-monospace text-secundario">#ORD-1001</td>
+                                <td>
+                                    <div class="fw-semibold">Alan Brito Delgado</div>
+                                    <small class="text-muted">alan.brito@duoc.cl</small>
+                                </td>
+                                <td><span class="badge-soft-success"><i class="ti ti-truck me-1"></i> Enviado</span></td>
+                                <td class="fw-bold">$45.000</td>
+                                <td class="text-end">
+                                    <button type="button" class="btn btn-outline-info btn-sm btn-ver-orden" data-bs-toggle="modal" data-bs-target="#modalMostrarOrden" data-orden="ORD-1001" data-cliente="Alan Brito Delgado" data-correo="alan.brito@duoc.cl" data-fecha="2026-06-01" data-estado="Enviado" data-total="$45.000" data-items="1x Torta Selva Negra ($45.000)"><i class="ti ti-eye"></i> Ver</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2026-06-02</td>
+                                <td class="fw-bold font-monospace text-secundario">#ORD-1002</td>
+                                <td>
+                                    <div class="fw-semibold">Lola Mento Rojas</div>
+                                    <small class="text-muted">lola.mento@profesor.duoc.cl</small>
+                                </td>
+                                <td><span class="badge-soft-warning"><i class="ti ti-clock me-1"></i> Pendiente</span></td>
+                                <td class="fw-bold">$38.000</td>
+                                <td class="text-end">
+                                    <button type="button" class="btn btn-outline-info btn-sm btn-ver-orden" data-bs-toggle="modal" data-bs-target="#modalMostrarOrden" data-orden="ORD-1002" data-cliente="Lola Mento Rojas" data-correo="lola.mento@profesor.duoc.cl" data-fecha="2026-06-02" data-estado="Pendiente" data-total="$38.000" data-items="1x Torta Panqueque de Naranja ($38.000)"><i class="ti ti-eye"></i> Ver</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2026-06-02</td>
+                                <td class="fw-bold font-monospace text-secundario">#ORD-1003</td>
+                                <td>
+                                    <div class="fw-semibold">Armando Esteban Quito</div>
+                                    <small class="text-muted">armando.quito@gmail.com</small>
+                                </td>
+                                <td><span class="badge-soft-danger"><i class="ti ti-x me-1"></i> Cancelado</span></td>
+                                <td class="fw-bold">$25.000</td>
+                                <td class="text-end">
+                                    <button type="button" class="btn btn-outline-info btn-sm btn-ver-orden" data-bs-toggle="modal" data-bs-target="#modalMostrarOrden" data-orden="ORD-1003" data-cliente="Armando Esteban Quito" data-correo="armando.quito@gmail.com" data-fecha="2026-06-02" data-estado="Cancelado" data-total="$25.000" data-items="1x Empolvados ($25.000)"><i class="ti ti-eye"></i> Ver</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2026-06-03</td>
+                                <td class="fw-bold font-monospace text-secundario">#ORD-1004</td>
+                                <td>
+                                    <div class="fw-semibold">Esteban Dido Bravo</div>
+                                    <small class="text-muted">esteban.dido@duoc.cl</small>
+                                </td>
+                                <td><span class="badge-soft-info"><i class="ti ti-loader me-1"></i> Procesando</span></td>
+                                <td class="fw-bold">$42.000</td>
+                                <td class="text-end">
+                                    <button type="button" class="btn btn-outline-info btn-sm btn-ver-orden" data-bs-toggle="modal" data-bs-target="#modalMostrarOrden" data-orden="ORD-1004" data-cliente="Esteban Dido Bravo" data-correo="esteban.dido@duoc.cl" data-fecha="2026-06-03" data-estado="Procesando" data-total="$42.000" data-items="1x Torta de Trufa ($42.000)"><i class="ti ti-eye"></i> Ver</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2026-06-04</td>
+                                <td class="fw-bold font-monospace text-secundario">#ORD-1005</td>
+                                <td>
+                                    <div class="fw-semibold">Elba Surita Valdés</div>
+                                    <small class="text-muted">elba.surita@gmail.com</small>
+                                </td>
+                                <td><span class="badge-soft-success"><i class="ti ti-truck me-1"></i> Enviado</span></td>
+                                <td class="fw-bold">$36.000</td>
+                                <td class="text-end">
+                                    <button type="button" class="btn btn-outline-info btn-sm btn-ver-orden" data-bs-toggle="modal" data-bs-target="#modalMostrarOrden" data-orden="ORD-1005" data-cliente="Elba Surita Valdés" data-correo="elba.surita@gmail.com" data-fecha="2026-06-04" data-estado="Enviado" data-total="$36.000" data-items="1x Torta Tres Leches ($36.000)"><i class="ti ti-eye"></i> Ver</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card-footer bg-white d-flex justify-content-between align-items-center py-3">
+                    <small class="text-muted">Mostrando 5 de 5 órdenes registradas</small>
+                    <nav>
+                        <ul class="pagination pagination-sm mb-0">
+                            <li class="page-item disabled"><a class="page-link" href="#">«</a></li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">»</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Modal Mostrar Orden -->
+    <div class="modal fade" id="modalMostrarOrden" tabindex="-1" aria-labelledby="modalMostrarOrdenLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow">
+                <div class="modal-header bg-white border-bottom">
+                    <h5 class="modal-title fw-bold text-principal" id="modalMostrarOrdenLabel">
+                        <i class="ti ti-file-invoice me-1 text-secundario"></i> Detalle de la Orden
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div>
+                            <span class="text-muted small d-block">Número de Pedido</span>
+                            <span id="modal-ord-id" class="fw-bold font-monospace text-secundario fs-5"></span>
+                        </div>
+                        <span id="modal-ord-estado" class="badge-soft-success"></span>
+                    </div>
+
+                    <div class="p-3 bg-light rounded-3 mb-3 small">
+                        <div class="mb-2">
+                            <span class="text-muted">Cliente:</span>
+                            <b id="modal-ord-cliente" class="ms-1 text-principal"></b>
+                        </div>
+                        <div class="mb-2">
+                            <span class="text-muted">Correo:</span>
+                            <span id="modal-ord-correo" class="ms-1"></span>
+                        </div>
+                        <div>
+                            <span class="text-muted">Fecha de Compra:</span>
+                            <span id="modal-ord-fecha" class="ms-1"></span>
+                        </div>
+                    </div>
+
+                    <h6 class="fw-bold text-principal mb-2 small text-uppercase">Productos Comprados</h6>
+                    <div class="list-group list-group-flush border rounded-3 mb-3 small" id="modal-ord-items">
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center pt-2 border-top">
+                        <span class="fw-bold text-muted">Total a Pagar:</span>
+                        <span id="modal-ord-total" class="fw-bold fs-5 text-principal"></span>
+                    </div>
+                </div>
+                <div class="modal-footer bg-light border-0 py-2">
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../javascript/bootstrap.bundle.min.js"></script>
+    <script src="../javascript/auth.js"></script>
+    <script src="../javascript/admin.js?v=7"></script>
+</body>
+</html>

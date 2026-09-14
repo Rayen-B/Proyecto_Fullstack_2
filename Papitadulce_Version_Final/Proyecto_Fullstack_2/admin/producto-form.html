@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador - Formulario de Producto | Pastelería Papita Dulce</title>
+    
+    <!-- Bootstrap 5 CSS & Tabler Icons (Local) -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/tabler-icons.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../assets/images/favicon_io/Logo_Papita_Dulce_recorte.png">
+    
+    <!-- Estilos del Proyecto -->
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+    <div id="overlay" class="overlay"></div>
+
+    <!--
+         SIDEBAR
+         -->
+    <aside id="sidebar" class="sidebar">
+        <div class="logo-area">
+            <div class="sidebar-logo-container">
+                <img src="../assets/images/favicon_io/Logo_Papita_Dulce.png" alt="Logo" class="sidebar-logo-img">
+            </div>
+            <span class="logo-text fw-bold fs-5 ms-2">Papita Dulce</span>
+        </div>
+
+        <div class="nav-section-title">Navegación</div>
+        <ul class="list-unstyled mb-0">
+            <li>
+                <a href="index.html" class="nav-link">
+                    <i class="ti ti-dashboard"></i>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="ordenes.html" class="nav-link">
+                    <i class="ti ti-receipt"></i>
+                    <span class="nav-text">Órdenes</span>
+                </a>
+            </li>
+            <li>
+                <a href="productos.html" class="nav-link">
+                    <i class="ti ti-box"></i>
+                    <span class="nav-text">Inventario</span>
+                </a>
+            </li>
+            <li class="solo-admin">
+                <a href="usuarios.html" class="nav-link">
+                    <i class="ti ti-users"></i>
+                    <span class="nav-text">Usuarios</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="nav-section-title solo-admin">Gestión</div>
+        <ul class="list-unstyled mb-3 solo-admin">
+            <li>
+                <a href="producto-form.html" class="nav-link active">
+                    <i class="ti ti-circle-plus"></i>
+                    <span class="nav-text">Nuevo Producto</span>
+                </a>
+            </li>
+            <li>
+                <a href="usuario-form.html" class="nav-link">
+                    <i class="ti ti-user-plus"></i>
+                    <span class="nav-text">Nuevo Usuario</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="sidebar-footer mt-auto">
+            <div class="d-flex align-items-center mb-3">
+                <img src="../assets/images/avatar/ryan.png" alt="Avatar" class="avatar me-2">
+                <div class="overflow-hidden">
+                    <div id="usuario-nombre-actual" class="fw-semibold text-truncate small">Alan Brito</div>
+                    <span id="usuario-rol-actual" class="badge-soft-primary">Administrador</span>
+                </div>
+            </div>
+            <div class="d-grid gap-2">
+                <a href="../papitadulce/index.html" class="btn btn-pasteleria btn-sm"><i class="ti ti-building-store me-1"></i> Ir a la Tienda</a>
+                <a href="../login.html" class="btn btn-outline-danger btn-sm" data-action="cerrar-sesion"><i class="ti ti-logout me-1"></i> Cerrar Sesión</a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- 
+         TOPBAR
+          -->
+    <header id="topbar" class="topbar fixed-top d-flex align-items-center justify-content-between px-3 px-lg-4">
+        <div class="d-flex align-items-center gap-2">
+            <button id="toggleBtn" class="btn btn-light btn-icon d-none d-lg-inline-flex">
+                <i class="ti ti-layout-sidebar-left-collapse"></i>
+            </button>
+            <button id="mobileBtn" class="btn btn-light btn-icon d-lg-none">
+                <i class="ti ti-menu-2"></i>
+            </button>
+            <h5 class="mb-0 fw-semibold">Gestión de Producto</h5>
+        </div>
+
+        <div class="d-flex align-items-center gap-2">
+            <a href="productos.html" class="btn btn-outline-secondary btn-sm">
+                <i class="ti ti-arrow-left me-1"></i> Volver al Inventario
+            </a>
+        </div>
+    </header>
+
+    <!-- 
+         FORMULARIO
+         -->
+    <main id="content" class="content">
+        <div class="container-fluid p-4">
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-9 col-xl-8">
+                    
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-white py-3">
+                            <h5 class="card-title mb-1 fw-bold"><i class="ti ti-box me-2 text-primary"></i> Registrar / Editar Producto</h5>
+                            <p class="card-subtitle text-muted small">Completa los campos.</p>
+                        </div>
+                        
+                        <div class="card-body p-4">
+                            
+                            <div id="alerta-producto" class="alert d-none" role="alert"></div>
+
+                            <form id="form-producto" novalidate>
+                                
+                                <!-- Código Producto -->
+                                <div class="mb-3">
+                                    <label for="codigo" class="form-label">Código Producto <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="codigo" placeholder="Ej: TC001" minlength="3" required>
+                                    <div class="form-text small">Requerido, texto, mínimo 3 caracteres, sin límite máximo.</div>
+                                </div>
+
+                                <!-- Nombre del Producto -->
+                                <div class="mb-3">
+                                    <label for="nombre" class="form-label">Nombre <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="nombre" placeholder="Ej: Torta de Piña" maxlength="100" required>
+                                    <div class="form-text small">Requerido, máximo 100 caracteres.</div>
+                                </div>
+
+                                <!-- Categoría -->
+                                <div class="mb-3">
+                                    <label for="categoria" class="form-label">Categorías <span class="text-danger">*</span></label>
+                                    <select class="form-select" id="categoria" required>
+                                        <option value="">-- Selecciona una categoría --</option>
+                                        <option value="Tortas">Tortas</option>
+                                        <option value="Pastelería Chilena">Pastelería Chilena</option>
+                                        <option value="Postres">Postres</option>
+                                        <option value="Bebestibles">Bebestibles</option>
+                                        <option value="Infusiones">Infusiones</option>
+                                        <option value="Sándwiches">Sándwiches</option>
+                                        <option value="Tartaletas">Tartaletas</option>
+                                        <option value="Sin Azúcar">Sin Azúcar</option>
+                                        <option value="Sin Gluten">Sin Gluten</option>
+                                    </select>
+                                    <div class="form-text small">Requerido.</div>
+                                </div>
+
+                                <!-- Precio y Stock -->
+                                <div class="row g-3 mb-3">
+                                    <div class="col-md-6">
+                                        <label for="precio" class="form-label">Precio ($) <span class="text-danger">*</span></label>
+                                        <input type="number" class="form-control" id="precio" placeholder="0" min="0" step="any" required>
+                                        <div class="form-text small">Requerido.</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="stock" class="form-label">Stock <span class="text-danger">*</span></label>
+                                        <input type="number" class="form-control" id="stock" placeholder="0" min="0" step="1" required>
+                                        <div class="form-text small">Requerido.</div>
+                                    </div>
+                                </div>
+
+                                <!-- Stock Crítico e Imagen -->
+                                <div class="row g-3 mb-3">
+                                    <div class="col-md-6">
+                                        <label for="stock-critico" class="form-label">Stock Crítico (Opcional)</label>
+                                        <input type="number" class="form-control" id="stock-critico" placeholder="Ej: 3" min="0" step="1">
+                                        <div class="form-text small">Opcional. Mínimo 0, enteros. Alerta cuando el stock sea igual o inferior.</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="imagen" class="form-label">Imagen (Opcional)</label>
+                                        <input type="file" class="form-control" id="imagen" accept="image/*">
+                                        <div class="form-text small">Opcional.</div>
+                                    </div>
+                                </div>
+
+                                <!-- Descripción -->
+                                <div class="mb-4">
+                                    <label for="descripcion" class="form-label">Descripción (Opcional)</label>
+                                    <textarea class="form-control" id="descripcion" rows="3" placeholder="Descripción del producto..." maxlength="500"></textarea>
+                                    <div class="d-flex justify-content-between form-text small">
+                                        <span>Opcional.</span>
+                                        <span id="contador-desc">0 / 500 caracteres</span>
+                                    </div>
+                                </div>
+
+                                <!-- Botone -->
+                                <div class="d-flex gap-2 justify-content-end">
+                                    <a href="productos.html" class="btn btn-light">Cancelar</a>
+                                    <button type="submit" class="btn btn-pasteleria px-4 fw-semibold">
+                                        <i class="ti ti-device-floppy me-1"></i> GUARDAR PRODUCTO
+                                    </button>
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../javascript/bootstrap.bundle.min.js"></script>
+    <script src="../javascript/auth.js"></script>
+    <script src="../javascript/validaciones.js"></script>
+    <script src="../javascript/productos.js"></script>
+    <script src="../javascript/admin.js"></script>
+</body>
+</html>
