@@ -230,10 +230,22 @@ function adaptarTablasMovil() {
 }
 window.adaptarTablasMovil = adaptarTablasMovil;
 
+
+// Inicializar botón de imprimir reportes
+function inicializarBotonImprimir() {
+    const btnImprimir = document.querySelector('.btn-imprimir');
+    if (btnImprimir) {
+        btnImprimir.addEventListener('click', () => {
+            window.print();
+        });
+    }
+}
+
 function initAdmin() {
     actualizarDashboardAdmin();
     inicializarModalOrdenes();
     inicializarBuscadorOrdenes();
+    inicializarBotonImprimir();
 
     // Control de Sidebar y Overlay
     const sidebar = document.getElementById('sidebar');
